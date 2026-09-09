@@ -1,0 +1,247 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Slideshow from '../../components/Slideshow.astro';
+import marinePhoto1 from '../../assets/photos/marine1.jpg';
+import marinePhoto2 from '../../assets/photos/marine2.jpg';
+import marinePhoto3 from '../../assets/photos/marine3.jpg';
+---
+<Layout
+  title="マリンサービス | emeraldblue"
+  description="徳島県牟岐町のemeraldblueが提供するスノーケリング・マリンサービスのご案内。料金や体験動画はこちら。"
+>
+  <section class="page-hero">
+    <Slideshow
+      images={[marinePhoto1, marinePhoto2, marinePhoto3]}
+      alt="マリンサービスの様子"
+      intervalMs={5000}
+      class="page-hero-slideshow"
+      widths={[800, 1600]}
+      sizes="100vw"
+    />
+    <div class="page-hero-overlay"></div>
+    <h1>マリンサービス</h1>
+  </section>
+
+  <section class="content">
+    <div class="section-label">スノーケリング</div>
+    <div class="content-body">
+      <p>
+        emerald blueでは、全スタッフがスノーケルインストラクター資格を保有。<br />
+        なかには現役の漁師でありながら、インストラクター資格も持つガイドも。<br />
+        魚の見つけ方や潮の読み方など、海のプロならではの知恵と経験を生かしたガイドが好評です。<br />
+        地元の漁師さんや漁協と連携し、安心・安全に楽しめるマリンレジャーを目指しています。自然の豊かさと、人の温かさにふれる特別な時間を、ぜひ体験してみませんか？
+      </p>
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/pXEMLIPVLDU"
+          title="素潜り漁師ガイドと学ぶスノーケリング体験PV"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="video-caption">素潜り漁師ガイドと学ぶスノーケリング体験PV</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="section-label">ダイビング</div>
+    <div class="content-body">
+      <p>
+        牟岐町では、タンク潜水はまだできません。<br />
+        『マリン事業・漁業・海洋保全』の全てが両立できる仕組みを、
+        この牟岐の海で少しずつ形にしていきたいと思っています。<br />
+        それまで見守っていてほしいです。
+      </p>
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/bqyUVSn8owU"
+          title="emeraldblueが目指すダイビングの形"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="video-caption">emeraldblueが目指すダイビングの形</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="section-label">料金</div>
+    <div class="content-body">
+      <div class="price-card">
+        <h3>スノーケリング</h3>
+        <p>
+          その日のベストなスポットへガイドがご案内。<br />
+          初心者の方や、お子様連れも安心の少人数制。<br />
+          全てのガイドがスノーケルインストラクター資格保有。
+        </p>
+        <div class="price-table">
+          <div class="price-row">
+            <span>大人(中学生以上)</span>
+            <strong>6,000円<small>(税込)</small></strong>
+          </div>
+          <div class="price-row">
+            <span>子ども(小学生)</span>
+            <strong>4,000円<small>(税込)</small></strong>
+          </div>
+        </div>
+        <p class="price-note">
+          ※参加料金に含まれるもの<br />
+          ・機材レンタル(ライフジャケット/フィン/マスク/シュノーケル)<br />
+          ・施設使用料(シャワー/更衣室)<br />
+          ・ガイド料<br />
+          ※当日、現金でのご清算となります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <p>体験のご予約・お問い合わせはこちらから</p>
+    <a href="/#contact" class="cta-button">お問い合わせはこちら</a>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    height: 40vh;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+  }
+  .page-hero :global(.page-hero-slideshow) {
+    position: absolute;
+    inset: 0;
+  }
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,40,40,0.4);
+  }
+  .page-hero h1 {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-size: 36px;
+    margin: 0;
+  }
+
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 24px;
+    display: flex;
+    gap: 32px;
+  }
+  .section-label {
+    writing-mode: vertical-rl;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+  .content-body {
+    flex: 1;
+  }
+  .content-body p {
+    font-size: 14px;
+    line-height: 2;
+    color: #33423E;
+    margin: 0 0 24px;
+  }
+  .video-embed {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .video-caption {
+    margin: 12px 0 0 !important;
+    font-size: 13px !important;
+    color: #4A5A56 !important;
+    text-align: center;
+  }
+
+  .price-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .price-card h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+  }
+  .price-table {
+    margin: 24px 0;
+    border-top: 1px solid #E5E1D6;
+  }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid #E5E1D6;
+    font-size: 14px;
+  }
+  .price-row strong {
+    font-size: 20px;
+    color: var(--color-ink);
+  }
+  .price-row strong small {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 4px;
+  }
+  .price-note {
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+    color: #4A5A56 !important;
+    margin: 0 !important;
+  }
+
+  .cta {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+    text-align: center;
+  }
+  .cta p {
+    font-size: 14px;
+    color: #4A5A56;
+    margin: 0 0 16px;
+  }
+  .cta-button {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 40px;
+    border-radius: 999px;
+    background: var(--color-teal);
+    color: white;
+    text-decoration: none;
+  }
+  .cta-button:hover {
+    background: #139A97;
+  }
+
+  @media (max-width: 640px) {
+    .content { flex-direction: column; }
+    .section-label { writing-mode: horizontal-tb; }
+  }
+</style>
