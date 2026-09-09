@@ -1,9 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Slideshow from '../../components/Slideshow.astro';
-import marinePhoto1 from '../../assets/photos/marine1.jpg';
-import marinePhoto2 from '../../assets/photos/marine2.jpg';
-import marinePhoto3 from '../../assets/photos/marine3.jpg';
+import LogoPattern from '../../components/LogoPattern.astro';
+import marineservice1 from '../../assets/photos/marineservice1.jpg';
+import marineservice2 from '../../assets/photos/marineservice2.jpg';
+import marineservice3 from '../../assets/photos/marineservice3.jpg';
+import marineservice4 from '../../assets/photos/marineservice4.jpg';
+import marineservice5 from '../../assets/photos/marineservice5.jpg';
 ---
 <Layout
   title="マリンサービス | emeraldblue"
@@ -11,7 +14,7 @@ import marinePhoto3 from '../../assets/photos/marine3.jpg';
 >
   <section class="page-hero">
     <Slideshow
-      images={[marinePhoto1, marinePhoto2, marinePhoto3]}
+      images={[marineservice1, marineservice2, marineservice3, marineservice4, marineservice5]}
       alt="マリンサービスの様子"
       intervalMs={5000}
       class="page-hero-slideshow"
@@ -22,6 +25,8 @@ import marinePhoto3 from '../../assets/photos/marine3.jpg';
     <h1>マリンサービス</h1>
   </section>
 
+  <LogoPattern />
+
   <section class="content">
     <div class="section-label">スノーケリング</div>
     <div class="content-body">
@@ -31,16 +36,32 @@ import marinePhoto3 from '../../assets/photos/marine3.jpg';
         魚の見つけ方や潮の読み方など、海のプロならではの知恵と経験を生かしたガイドが好評です。<br />
         地元の漁師さんや漁協と連携し、安心・安全に楽しめるマリンレジャーを目指しています。自然の豊かさと、人の温かさにふれる特別な時間を、ぜひ体験してみませんか？
       </p>
-      <div class="video-embed">
-        <iframe
-          src="https://www.youtube.com/embed/pXEMLIPVLDU"
-          title="素潜り漁師ガイドと学ぶスノーケリング体験PV"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+      <div class="video-row">
+        <div class="video-item">
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/pXEMLIPVLDU"
+              title="牟岐の海の様子"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="video-caption">牟岐の海の様子</p>
+        </div>
+        <div class="video-item">
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/bqyUVSn8owU"
+              title="漁師ガイドと学ぶスノーケリング体験"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="video-caption">漁師ガイドと学ぶスノーケリング体験</p>
+        </div>
       </div>
-      <p class="video-caption">素潜り漁師ガイドと学ぶスノーケリング体験PV</p>
     </div>
   </section>
 
@@ -53,16 +74,6 @@ import marinePhoto3 from '../../assets/photos/marine3.jpg';
         この牟岐の海で少しずつ形にしていきたいと思っています。<br />
         それまで見守っていてほしいです。
       </p>
-      <div class="video-embed">
-        <iframe
-          src="https://www.youtube.com/embed/bqyUVSn8owU"
-          title="emeraldblueが目指すダイビングの形"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <p class="video-caption">emeraldblueが目指すダイビングの形</p>
     </div>
   </section>
 
@@ -155,6 +166,14 @@ import marinePhoto3 from '../../assets/photos/marine3.jpg';
     color: #33423E;
     margin: 0 0 24px;
   }
+  .video-row {
+    display: flex;
+    gap: 16px;
+  }
+  .video-item {
+    flex: 1;
+    min-width: 0;
+  }
   .video-embed {
     position: relative;
     width: 100%;
@@ -171,8 +190,8 @@ import marinePhoto3 from '../../assets/photos/marine3.jpg';
     border: 0;
   }
   .video-caption {
-    margin: 12px 0 0 !important;
-    font-size: 13px !important;
+    margin: 8px 0 0 !important;
+    font-size: 12px !important;
     color: #4A5A56 !important;
     text-align: center;
   }
@@ -243,5 +262,6 @@ import marinePhoto3 from '../../assets/photos/marine3.jpg';
   @media (max-width: 640px) {
     .content { flex-direction: column; }
     .section-label { writing-mode: horizontal-tb; }
+    .video-row { flex-direction: column; }
   }
 </style>
