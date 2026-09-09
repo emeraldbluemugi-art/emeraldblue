@@ -1,5 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import messagePhoto from '../assets/photos/message.jpg';
+import marinePhoto from '../assets/photos/marine.jpg';
+import upcyclePhoto from '../assets/photos/upcycle.jpg';
+import creativePhoto from '../assets/photos/creative.jpg';
+import webshopPhoto from '../assets/photos/webshop.jpg';
 ---
 <Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
   <section class="hero">
@@ -17,7 +23,7 @@ import Layout from '../layouts/Layout.astro';
         私たちは、この「青でもない、緑でもない」唯一無二の「emeraldblue」の海で、<br />
         心を揺さぶるマリンアクティビティを提供します。
       </p>
-      <div class="message-image" style="background:#6E9C82;"></div>
+      <Image src={messagePhoto} alt="牟岐町の港と山並み" class="message-image" widths={[400, 800, 1200]} sizes="(max-width: 640px) 100vw, 500px" />
     </div>
   </section>
 
@@ -25,14 +31,14 @@ import Layout from '../layouts/Layout.astro';
     <div class="section-label">私たちのこと</div>
     <div class="cards">
       <a href="/marine/" class="card">
-        <div class="card-image" style="background:#9FE1CB;"></div>
+        <Image src={marinePhoto} alt="シュノーケリング体験の様子" class="card-image" widths={[300, 600]} sizes="(max-width: 640px) 100vw, 350px" />
         <h3>マリンサービス</h3>
         <p>牟岐町のemeraldblueの海をご案内するマリンサービスは、シュノーケリング体験などを通じて、美しい海の魅力を体感できるアクティビティを提供しています。海中では、サンゴ礁や多彩な魚たちを間近で観察でき、初心者から上級者まで安心して楽しめるガイド付きプランも充実。牟岐の自然を満喫したい方に最適な海の体験型サービスです。</p>
         <span class="pill">view more</span>
       </a>
 
       <a href="/upcycle/" class="card">
-        <div class="card-image" style="background:#C0DD97;"></div>
+        <Image src={upcyclePhoto} alt="アップサイクル製品のアクセサリー" class="card-image" widths={[300, 600]} sizes="(max-width: 640px) 100vw, 350px" />
         <h3>アップサイクル事業</h3>
         <p>アップサイクル事業は、海に漂着したプラスチックや漁具などの廃棄物を回収し、新たな価値ある製品へと生まれ変わらせる取り組みです。アクセサリーや雑貨、アート作品などに加工することで、環境問題への意識を高めながら、持続可能なモノづくりを実現しています。</p>
         <span class="pill">view more</span>
@@ -46,14 +52,14 @@ import Layout from '../layouts/Layout.astro';
       </a>
 
       <a href="/creative/" class="card">
-        <div class="card-image" style="background:#F0997B;"></div>
+        <Image src={creativePhoto} alt="撮影・映像制作の作例" class="card-image" widths={[300, 600]} sizes="(max-width: 640px) 100vw, 350px" />
         <h3>写真・映像撮影/動画制作/広告</h3>
         <p>あなたの見ている景色を残します。写真撮影・空撮・動画編集・バナー制作・web制作・広告運用など、幅広くご依頼承ります。</p>
         <span class="pill">view more</span>
       </a>
 
       <a href="https://emeraldblue.base.shop/" class="card" target="_blank" rel="noopener">
-        <div class="card-image" style="background:#E8D9C0;"></div>
+        <Image src={webshopPhoto} alt="emeraldblue公式グッズ" class="card-image" widths={[300, 600]} sizes="(max-width: 640px) 100vw, 350px" />
         <h3>Web Shop</h3>
         <p>emeraldblue公式グッズ販売中。</p>
         <span class="pill">view more</span>
@@ -114,8 +120,11 @@ import Layout from '../layouts/Layout.astro';
   }
   .message-image {
     margin-top: 24px;
+    width: 100%;
     height: 260px;
     border-radius: 12px;
+    object-fit: cover;
+    display: block;
   }
 
   .services {
@@ -141,9 +150,12 @@ import Layout from '../layouts/Layout.astro';
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   }
   .card-image {
+    width: 100%;
     height: 140px;
     border-radius: 10px;
     margin-bottom: 12px;
+    object-fit: cover;
+    display: block;
   }
   .card h3 {
     margin: 0 0 8px;
