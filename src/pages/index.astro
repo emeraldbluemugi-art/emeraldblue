@@ -168,15 +168,15 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     <div class="section-label">スタッフ</div>
     <div class="staff-grid">
       <div class="staff-member">
-        <Image src={staffSanga} alt="石橋山河" class="staff-photo" widths={[200, 400]} sizes="180px" />
-        <h3>石橋山河 <span>Ishibashi Sanga</span></h3>
+        <Image src={staffSanga} alt="山河" class="staff-photo" widths={[200, 400]} sizes="180px" />
+        <h3>山河 <span>sanga</span></h3>
         <p>
           青と緑が溶け合うような海の色に惚れ込み、東京から徳島県の田舎町「牟岐町」へ移住。
           釣り・波乗り中毒。見ている景色を残したく、撮影・編集に力を入れる。前職広告代理店で培った知識を活かして幅広くSNSを展開。空撮・ショート動画制作を得意としてます。
         </p>
       </div>
       <div class="staff-member">
-        <Image src={staffKyoka} alt="京華" class="staff-photo" widths={[200, 400]} sizes="180px" />
+        <Image src={staffKyoka} alt="京華" class="staff-photo staff-photo-kyoka" widths={[200, 400]} sizes="180px" />
         <h3>京華 <span>kyoka</span></h3>
         <p>
           海が大好き。趣味ではじめたダイビングで、海の世界に心奪われ、ダイビングインストラクターへ。
@@ -196,6 +196,40 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
         height="500"
         loading="lazy"
       ></iframe>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="section-label">お問い合わせ</div>
+    <div class="contact-content">
+      <p class="contact-lead">弊社へのお問い合わせはこちらよりお願い致します。2営業日以内にご返信させて頂きます。</p>
+      <form class="contact-form">
+        <label>
+          <span class="label-text">お名前 <span class="required">必須</span></span>
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          <span class="label-text">会社名</span>
+          <input type="text" name="company" />
+        </label>
+        <label>
+          <span class="label-text">メールアドレス <span class="required">必須</span></span>
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          <span class="label-text">電話番号</span>
+          <input type="tel" name="phone" />
+        </label>
+        <label class="contact-message">
+          <span class="label-text">お問い合わせ内容 <span class="required">必須</span></span>
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+        <label class="contact-agree">
+          <input type="checkbox" name="agree" required />
+          <a href="/privacy-policy/">プライバシーポリシー</a>に同意する
+        </label>
+        <button type="submit">送信</button>
+      </form>
     </div>
   </section>
 </Layout>
@@ -415,6 +449,9 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     margin: 0 auto 16px;
     display: block;
   }
+  .staff-member :global(.staff-photo-kyoka) {
+    object-position: 20% 30%;
+  }
   .staff-member h3 {
     margin: 0 0 12px;
     font-size: 17px;
@@ -453,8 +490,86 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     display: block;
   }
 
+  .contact {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+    display: flex;
+    gap: 32px;
+  }
+  .contact-content {
+    flex: 1;
+  }
+  .contact-lead {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #4A5A56;
+    margin: 0 0 24px;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--color-ink);
+  }
+  .contact-form .label-text {
+    display: inline-block;
+  }
+  .contact-form .required {
+    display: inline-block;
+    font-size: 11px;
+    color: white;
+    background: #E0745C;
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px 12px;
+    border: 1px solid #D8D4CA;
+    border-radius: 8px;
+    background: white;
+    color: var(--color-ink);
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 1px;
+  }
+  .contact-agree {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 8px !important;
+  }
+  .contact-agree a {
+    color: var(--color-teal);
+  }
+  .contact-form button {
+    align-self: flex-start;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 32px;
+    border: none;
+    border-radius: 999px;
+    background: var(--color-teal);
+    color: white;
+    cursor: pointer;
+  }
+  .contact-form button:hover {
+    background: #139A97;
+  }
+
   @media (max-width: 640px) {
-    .message, .services, .blog-links, .staff, .calendar { flex-direction: column; }
+    .message, .services, .blog-links, .staff, .calendar, .contact { flex-direction: column; }
     .section-label { writing-mode: horizontal-tb; }
     .cards, .sns-row, .staff-grid { grid-template-columns: 1fr; }
     .calendar-embed iframe { height: 400px; }
