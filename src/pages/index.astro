@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
+  <section class="hero">
+    <h1>emeraldblue</h1>
+    <p>青でもない、緑でもない、この海で</p>
+  </section>
+
+  <section class="message">
+    <div class="section-label">ご挨拶</div>
+    <div class="message-content">
+      <h2>青でもない、緑でもない、この海で</h2>
+      <p>
+        四国の徳島県南部に位置する「牟岐町(むぎちょう)」、過疎化が進む小さな港町。<br />
+        山と海が出会い、色を失うことなく混ざり合う場所。<br />
+        私たちは、この「青でもない、緑でもない」唯一無二の「emeraldblue」の海で、<br />
+        心を揺さぶるマリンアクティビティを提供します。
+      </p>
+      <div class="message-image" style="background:#6E9C82;"></div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="section-label">私たちのこと</div>
+    <div class="cards">
+      <a href="/marine/" class="card">
+        <div class="card-image" style="background:#9FE1CB;"></div>
+        <h3>マリンサービス</h3>
+        <p>シュノーケリング体験を中心に、牟岐の美しい海をガイド付きでご案内します。</p>
+        <span class="pill">view more</span>
+      </a>
+
+      <a href="/upcycle/" class="card">
+        <div class="card-image" style="background:#C0DD97;"></div>
+        <h3>アップサイクル事業</h3>
+        <p>海洋プラスチックごみを使った、ものづくり体験イベントを開催しています。</p>
+        <span class="pill">view more</span>
+      </a>
+
+      <a href="/creative/" class="card">
+        <div class="card-image" style="background:#F0997B;"></div>
+        <h3>撮影・映像制作</h3>
+        <p>写真撮影・空撮・動画編集・広告運用まで、見ている景色を形に残します。</p>
+        <span class="pill">view more</span>
+      </a>
+
+      <a href="/guesthouse/" class="card">
+        <div class="card-image" style="background:#B9C7D0;"></div>
+        <h3>ゲストハウス</h3>
+        <p>coming soon</p>
+        <span class="pill">coming soon</span>
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:
+      linear-gradient(180deg, rgba(0,40,40,0.35), rgba(0,40,40,0.35)),
+      url('/images/hero-snorkel.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 24px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: 48px;
+    margin: 0;
+  }
+  .hero p {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+
+  .section-label {
+    writing-mode: vertical-rl;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+
+  .message {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 24px;
+    display: flex;
+    gap: 32px;
+  }
+  .message-content h2 {
+    font-size: 22px;
+    margin: 0 0 16px;
+  }
+  .message-content p {
+    font-size: 14px;
+    line-height: 2;
+    color: #33423E;
+  }
+  .message-image {
+    margin-top: 24px;
+    height: 260px;
+    border-radius: 12px;
+  }
+
+  .services {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 24px;
+    display: flex;
+    gap: 32px;
+  }
+  .cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .card {
+    display: block;
+    text-decoration: none;
+    color: var(--color-ink);
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .card-image {
+    height: 140px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+  }
+  .card p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #4A5A56;
+  }
+  .pill {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 14px;
+    border: 1px solid var(--color-ink);
+    border-radius: 999px;
+  }
+
+  @media (max-width: 640px) {
+    .message, .services { flex-direction: column; }
+    .section-label { writing-mode: horizontal-tb; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>

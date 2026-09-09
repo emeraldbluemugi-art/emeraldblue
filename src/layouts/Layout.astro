@@ -1,0 +1,113 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "徳島県牟岐町emeraldblue。マリンサービス・アップサイクル・撮影/映像制作を行っています。" } = Astro.props;
+---
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a href="/" class="logo">emeraldblue</a>
+      <ul>
+        <li><a href="/about/">私たちのこと</a></li>
+        <li><a href="/marine/">マリンサービス</a></li>
+        <li><a href="/upcycle/">アップサイクル</a></li>
+        <li><a href="/creative/">撮影・映像</a></li>
+        <li><a href="/contact/">お問い合わせ</a></li>
+      </ul>
+      <div class="lang-switch">
+        <a href="/" class="active">JA</a>
+        <a href="/en/">EN</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; emeraldblue, 牟岐町, 徳島県</p>
+  </footer>
+</body>
+</html>
+
+<style>
+  :root {
+    --color-teal: #17BEBB;
+    --color-ink: #04342C;
+    --color-cream: #F7F5F0;
+    --font-jp: 'Noto Sans JP', sans-serif;
+    --font-display: 'Poppins', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--font-jp);
+    color: var(--color-ink);
+    background: var(--color-cream);
+  }
+  .site-header { background: var(--color-teal); }
+  .site-header nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+  .site-header ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .site-header a {
+    color: var(--color-ink);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .lang-switch {
+    display: flex;
+    border: 1px solid var(--color-ink);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .lang-switch a {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+  .lang-switch a.active {
+    background: var(--color-ink);
+    color: var(--color-cream);
+  }
+  .site-footer {
+    text-align: center;
+    padding: 32px;
+    font-size: 13px;
+    color: var(--color-ink);
+  }
+</style>
