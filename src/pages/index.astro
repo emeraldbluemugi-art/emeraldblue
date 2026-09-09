@@ -1,40 +1,39 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import Slideshow from '../components/Slideshow.astro';
 import heroPhoto1 from '../assets/photos/hero1.jpg';
 import heroPhoto2 from '../assets/photos/hero2.jpg';
 import heroPhoto3 from '../assets/photos/hero3.jpg';
 import heroPhoto4 from '../assets/photos/hero4.jpg';
-import messagePhoto from '../assets/photos/message.jpg';
-import marinePhoto from '../assets/photos/marine.jpg';
-import upcyclePhoto from '../assets/photos/upcycle.jpg';
-import creativePhoto from '../assets/photos/creative.jpg';
-import webshopPhoto from '../assets/photos/webshop.jpg';
+import messagePhoto1 from '../assets/photos/message1.jpg';
+import messagePhoto2 from '../assets/photos/message2.jpg';
+import marinePhoto1 from '../assets/photos/marine1.jpg';
+import marinePhoto2 from '../assets/photos/marine2.jpg';
+import marinePhoto3 from '../assets/photos/marine3.jpg';
+import upcyclePhoto1 from '../assets/photos/upcycle1.jpg';
+import upcyclePhoto2 from '../assets/photos/upcycle2.jpg';
+import upcyclePhoto3 from '../assets/photos/upcycle3.jpg';
+import creativePhoto1 from '../assets/photos/creative1.jpg';
+import creativePhoto2 from '../assets/photos/creative2.jpg';
+import creativePhoto3 from '../assets/photos/creative3.jpg';
+import webshopPhoto1 from '../assets/photos/webshop1.jpg';
+import webshopPhoto2 from '../assets/photos/webshop2.jpg';
+import webshopPhoto3 from '../assets/photos/webshop3.jpg';
 ---
 <Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
   <section class="hero">
-    <div class="hero-slideshow">
-      <Image src={heroPhoto1} alt="" class="hero-slide is-active" widths={[800, 1600, 2400]} sizes="100vw" loading="eager" />
-      <Image src={heroPhoto2} alt="" class="hero-slide" widths={[800, 1600, 2400]} sizes="100vw" loading="eager" />
-      <Image src={heroPhoto3} alt="" class="hero-slide" widths={[800, 1600, 2400]} sizes="100vw" loading="eager" />
-      <Image src={heroPhoto4} alt="" class="hero-slide" widths={[800, 1600, 2400]} sizes="100vw" loading="eager" />
-    </div>
+    <Slideshow
+      images={[heroPhoto1, heroPhoto2, heroPhoto3, heroPhoto4]}
+      alt=""
+      intervalMs={4000}
+      class="hero-slideshow"
+      widths={[800, 1600, 2400]}
+      sizes="100vw"
+    />
     <div class="hero-overlay"></div>
     <h1>emeraldblue</h1>
     <p>青でもない、緑でもない、この海で</p>
   </section>
-
-  <script>
-    const slides = document.querySelectorAll<HTMLElement>('.hero-slide');
-    if (slides.length > 1) {
-      let current = 0;
-      setInterval(() => {
-        slides[current].classList.remove('is-active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('is-active');
-      }, 4000);
-    }
-  </script>
 
   <section class="message">
     <div class="section-label">ご挨拶</div>
@@ -46,7 +45,14 @@ import webshopPhoto from '../assets/photos/webshop.jpg';
         私たちは、この「青でもない、緑でもない」唯一無二の「emeraldblue」の海で、<br />
         心を揺さぶるマリンアクティビティを提供します。
       </p>
-      <Image src={messagePhoto} alt="牟岐町の港と山並み" class="message-image" widths={[400, 800, 1200]} sizes="(max-width: 640px) 100vw, 500px" />
+      <Slideshow
+        images={[messagePhoto1, messagePhoto2]}
+        alt="牟岐町の港と山並み"
+        intervalMs={6000}
+        class="message-image"
+        widths={[400, 800, 1200]}
+        sizes="(max-width: 640px) 100vw, 500px"
+      />
     </div>
   </section>
 
@@ -54,14 +60,28 @@ import webshopPhoto from '../assets/photos/webshop.jpg';
     <div class="section-label">私たちのこと</div>
     <div class="cards">
       <a href="/marine/" class="card">
-        <Image src={marinePhoto} alt="シュノーケリング体験の様子" class="card-image" widths={[300, 600]} sizes="(max-width: 640px) 100vw, 350px" />
+        <Slideshow
+          images={[marinePhoto1, marinePhoto2, marinePhoto3]}
+          alt="シュノーケリング体験の様子"
+          intervalMs={6000}
+          class="card-image"
+          widths={[300, 600]}
+          sizes="(max-width: 640px) 100vw, 350px"
+        />
         <h3>マリンサービス</h3>
         <p>牟岐町のemeraldblueの海をご案内するマリンサービスは、シュノーケリング体験などを通じて、美しい海の魅力を体感できるアクティビティを提供しています。海中では、サンゴ礁や多彩な魚たちを間近で観察でき、初心者から上級者まで安心して楽しめるガイド付きプランも充実。牟岐の自然を満喫したい方に最適な海の体験型サービスです。</p>
         <span class="pill">view more</span>
       </a>
 
       <a href="/upcycle/" class="card">
-        <Image src={upcyclePhoto} alt="アップサイクル製品のアクセサリー" class="card-image" widths={[300, 600]} sizes="(max-width: 640px) 100vw, 350px" />
+        <Slideshow
+          images={[upcyclePhoto1, upcyclePhoto2, upcyclePhoto3]}
+          alt="アップサイクル製品のアクセサリー"
+          intervalMs={6000}
+          class="card-image"
+          widths={[300, 600]}
+          sizes="(max-width: 640px) 100vw, 350px"
+        />
         <h3>アップサイクル事業</h3>
         <p>アップサイクル事業は、海に漂着したプラスチックや漁具などの廃棄物を回収し、新たな価値ある製品へと生まれ変わらせる取り組みです。アクセサリーや雑貨、アート作品などに加工することで、環境問題への意識を高めながら、持続可能なモノづくりを実現しています。</p>
         <span class="pill">view more</span>
@@ -75,14 +95,28 @@ import webshopPhoto from '../assets/photos/webshop.jpg';
       </a>
 
       <a href="/creative/" class="card">
-        <Image src={creativePhoto} alt="撮影・映像制作の作例" class="card-image" widths={[300, 600]} sizes="(max-width: 640px) 100vw, 350px" />
+        <Slideshow
+          images={[creativePhoto1, creativePhoto2, creativePhoto3]}
+          alt="撮影・映像制作の作例"
+          intervalMs={6000}
+          class="card-image"
+          widths={[300, 600]}
+          sizes="(max-width: 640px) 100vw, 350px"
+        />
         <h3>写真・映像撮影/動画制作/広告</h3>
         <p>あなたの見ている景色を残します。写真撮影・空撮・動画編集・バナー制作・web制作・広告運用など、幅広くご依頼承ります。</p>
         <span class="pill">view more</span>
       </a>
 
       <a href="https://emeraldblue.base.shop/" class="card" target="_blank" rel="noopener">
-        <Image src={webshopPhoto} alt="emeraldblue公式グッズ" class="card-image" widths={[300, 600]} sizes="(max-width: 640px) 100vw, 350px" />
+        <Slideshow
+          images={[webshopPhoto1, webshopPhoto2, webshopPhoto3]}
+          alt="emeraldblue公式グッズ"
+          intervalMs={6000}
+          class="card-image"
+          widths={[300, 600]}
+          sizes="(max-width: 640px) 100vw, 350px"
+        />
         <h3>Web Shop</h3>
         <p>emeraldblue公式グッズ販売中。</p>
         <span class="pill">view more</span>
@@ -104,21 +138,9 @@ import webshopPhoto from '../assets/photos/webshop.jpg';
     text-align: center;
     padding: 24px;
   }
-  .hero-slideshow {
+  .hero :global(.hero-slideshow) {
     position: absolute;
     inset: 0;
-  }
-  .hero-slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.5s ease;
-  }
-  .hero-slide.is-active {
-    opacity: 1;
   }
   .hero-overlay {
     position: absolute;
@@ -163,13 +185,11 @@ import webshopPhoto from '../assets/photos/webshop.jpg';
     line-height: 2;
     color: #33423E;
   }
-  .message-image {
+  .message-content :global(.message-image) {
     margin-top: 24px;
-    width: 100%;
     height: 260px;
     border-radius: 12px;
-    object-fit: cover;
-    display: block;
+    overflow: hidden;
   }
 
   .services {
@@ -194,13 +214,11 @@ import webshopPhoto from '../assets/photos/webshop.jpg';
     padding: 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   }
-  .card-image {
-    width: 100%;
+  .card :global(.card-image) {
     height: 140px;
     border-radius: 10px;
     margin-bottom: 12px;
-    object-fit: cover;
-    display: block;
+    overflow: hidden;
   }
   .card h3 {
     margin: 0 0 8px;
