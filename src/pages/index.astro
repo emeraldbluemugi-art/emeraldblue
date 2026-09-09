@@ -1,6 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import heroPhoto1 from '../assets/photos/hero1.jpg';
+import heroPhoto2 from '../assets/photos/hero2.jpg';
+import heroPhoto3 from '../assets/photos/hero3.jpg';
+import heroPhoto4 from '../assets/photos/hero4.jpg';
 import messagePhoto from '../assets/photos/message.jpg';
 import marinePhoto from '../assets/photos/marine.jpg';
 import upcyclePhoto from '../assets/photos/upcycle.jpg';
@@ -9,9 +13,28 @@ import webshopPhoto from '../assets/photos/webshop.jpg';
 ---
 <Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
   <section class="hero">
+    <div class="hero-slideshow">
+      <Image src={heroPhoto1} alt="" class="hero-slide is-active" widths={[800, 1600, 2400]} sizes="100vw" loading="eager" />
+      <Image src={heroPhoto2} alt="" class="hero-slide" widths={[800, 1600, 2400]} sizes="100vw" loading="eager" />
+      <Image src={heroPhoto3} alt="" class="hero-slide" widths={[800, 1600, 2400]} sizes="100vw" loading="eager" />
+      <Image src={heroPhoto4} alt="" class="hero-slide" widths={[800, 1600, 2400]} sizes="100vw" loading="eager" />
+    </div>
+    <div class="hero-overlay"></div>
     <h1>emeraldblue</h1>
     <p>青でもない、緑でもない、この海で</p>
   </section>
+
+  <script>
+    const slides = document.querySelectorAll<HTMLElement>('.hero-slide');
+    if (slides.length > 1) {
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove('is-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('is-active');
+      }, 4000);
+    }
+  </script>
 
   <section class="message">
     <div class="section-label">ご挨拶</div>
@@ -70,19 +93,41 @@ import webshopPhoto from '../assets/photos/webshop.jpg';
 
 <style>
   .hero {
+    position: relative;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background:
-      linear-gradient(180deg, rgba(0,40,40,0.35), rgba(0,40,40,0.35)),
-      url('/images/hero-snorkel.jpg');
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
     color: white;
     text-align: center;
     padding: 24px;
+  }
+  .hero-slideshow {
+    position: absolute;
+    inset: 0;
+  }
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+  }
+  .hero-slide.is-active {
+    opacity: 1;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,40,40,0.35);
+  }
+  .hero h1, .hero p {
+    position: relative;
+    z-index: 1;
   }
   .hero h1 {
     font-family: var(--font-display);
