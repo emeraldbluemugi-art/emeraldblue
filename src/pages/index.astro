@@ -1,7 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Slideshow from '../components/Slideshow.astro';
 import PhotoRow from '../components/PhotoRow.astro';
+import staffSanga from '../assets/photos/staff-sanga.jpg';
+import staffKyoka from '../assets/photos/staff-kyoka.jpg';
 import heroPhoto1 from '../assets/photos/hero1.jpg';
 import heroPhoto2 from '../assets/photos/hero2.jpg';
 import heroPhoto3 from '../assets/photos/hero3.jpg';
@@ -158,6 +161,41 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
           <span class="pill">view more</span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section class="staff">
+    <div class="section-label">スタッフ</div>
+    <div class="staff-grid">
+      <div class="staff-member">
+        <Image src={staffSanga} alt="石橋山河" class="staff-photo" widths={[200, 400]} sizes="180px" />
+        <h3>石橋山河 <span>Ishibashi Sanga</span></h3>
+        <p>
+          青と緑が溶け合うような海の色に惚れ込み、東京から徳島県の田舎町「牟岐町」へ移住。
+          釣り・波乗り中毒。見ている景色を残したく、撮影・編集に力を入れる。前職広告代理店で培った知識を活かして幅広くSNSを展開。空撮・ショート動画制作を得意としてます。
+        </p>
+      </div>
+      <div class="staff-member">
+        <Image src={staffKyoka} alt="京華" class="staff-photo" widths={[200, 400]} sizes="180px" />
+        <h3>京華 <span>kyoka</span></h3>
+        <p>
+          海が大好き。趣味ではじめたダイビングで、海の世界に心奪われ、ダイビングインストラクターへ。
+          「地元の徳島県にもこんな豊かな海があるんだ!」と牟岐町の海に惹かれ、移住。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="calendar">
+    <div class="section-label">イベントスケジュール</div>
+    <div class="calendar-embed">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=emerald.blue.mugi%40gmail.com&ctz=Asia%2FTokyo"
+        style="border: 0"
+        width="100%"
+        height="500"
+        loading="lazy"
+      ></iframe>
     </div>
   </section>
 </Layout>
@@ -353,9 +391,72 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     color: #4A5A56;
   }
 
+  .staff {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+    display: flex;
+    gap: 32px;
+  }
+  .staff-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .staff-member {
+    text-align: center;
+  }
+  .staff-member :global(.staff-photo) {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 16px;
+    display: block;
+  }
+  .staff-member h3 {
+    margin: 0 0 12px;
+    font-size: 17px;
+  }
+  .staff-member h3 span {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    color: var(--color-teal);
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+  .staff-member p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #4A5A56;
+    text-align: left;
+  }
+
+  .calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+    display: flex;
+    gap: 32px;
+  }
+  .calendar-embed {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    line-height: 0;
+  }
+  .calendar-embed iframe {
+    display: block;
+  }
+
   @media (max-width: 640px) {
-    .message, .services, .blog-links { flex-direction: column; }
+    .message, .services, .blog-links, .staff, .calendar { flex-direction: column; }
     .section-label { writing-mode: horizontal-tb; }
-    .cards, .sns-row { grid-template-columns: 1fr; }
+    .cards, .sns-row, .staff-grid { grid-template-columns: 1fr; }
+    .calendar-embed iframe { height: 400px; }
   }
 </style>
