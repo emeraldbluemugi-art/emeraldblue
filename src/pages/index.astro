@@ -3,10 +3,9 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Slideshow from '../components/Slideshow.astro';
 import PhotoRow from '../components/PhotoRow.astro';
+import LogoPattern from '../components/LogoPattern.astro';
 import staffSanga from '../assets/photos/staff-sanga.jpg';
 import staffKyoka from '../assets/photos/staff-kyoka.jpg';
-import logo1 from '../assets/logos/logo1.png';
-import logo2 from '../assets/logos/logo2.png';
 import heroPhoto1 from '../assets/photos/hero1.jpg';
 import heroPhoto2 from '../assets/photos/hero2.jpg';
 import heroPhoto3 from '../assets/photos/hero3.jpg';
@@ -41,10 +40,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     <p>青でもない、緑でもない、この海で</p>
   </section>
 
-  <div class="logo-divider">
-    <Image src={logo1} alt="" class="logo-deco logo-deco-1" widths={[80, 160]} sizes="70px" loading="lazy" />
-    <Image src={logo2} alt="" class="logo-deco logo-deco-2" widths={[100, 200]} sizes="90px" loading="lazy" />
-  </div>
+  <LogoPattern />
 
   <section class="message">
     <div class="section-label">ご挨拶</div>
@@ -275,30 +271,6 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   .hero p {
     margin-top: 12px;
     font-size: 16px;
-  }
-
-  .logo-divider {
-    position: relative;
-    max-width: 1100px;
-    height: 90px;
-    margin: 0 auto;
-  }
-  .logo-divider :global(.logo-deco) {
-    position: absolute;
-    height: auto;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
-  }
-  .logo-divider :global(.logo-deco-1) {
-    width: 64px;
-    top: 8px;
-    left: 10%;
-    transform: rotate(-10deg);
-  }
-  .logo-divider :global(.logo-deco-2) {
-    width: 84px;
-    top: 22px;
-    right: 14%;
-    transform: rotate(7deg);
   }
 
   .section-label {
