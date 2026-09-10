@@ -113,6 +113,33 @@ const instagramReels = [
     </div>
   </section>
 
+  <section class="content">
+    <div class="section-label">料金</div>
+    <div class="content-body">
+      <div class="price-card">
+        <div class="price-table">
+          <div class="price-row">
+            <span>横型動画 撮影編集込み</span>
+            <strong>50,000円<small>〜</small></strong>
+          </div>
+          <div class="price-row">
+            <span>ショート動画 撮影編集込み</span>
+            <strong>20,000円<small>〜</small></strong>
+          </div>
+          <div class="price-row">
+            <span>編集のみ</span>
+            <strong>10,000円<small>〜</small></strong>
+          </div>
+          <div class="price-row">
+            <span>写真撮影</span>
+            <strong>10,000円<small>〜</small></strong>
+          </div>
+        </div>
+        <p class="price-note">※別途交通費をいただきます。</p>
+      </div>
+    </div>
+  </section>
+
   <section class="cta">
     <p>撮影・映像制作のご相談はこちらから</p>
     <a href="/#contact" class="cta-button">お問い合わせはこちら</a>
@@ -220,6 +247,39 @@ const instagramReels = [
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     display: block;
+  }
+
+  .price-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .price-table {
+    border-top: 1px solid #E5E1D6;
+  }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid #E5E1D6;
+    font-size: 14px;
+  }
+  .price-row strong {
+    font-size: 20px;
+    color: var(--color-ink);
+  }
+  .price-row strong small {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 4px;
+  }
+  .price-note {
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+    color: #4A5A56 !important;
+    margin: 16px 0 0 !important;
   }
 
   .cta {
