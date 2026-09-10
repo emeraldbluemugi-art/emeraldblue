@@ -148,12 +148,14 @@ const instagramReels = [
     <div class="section-label">スタッフ</div>
     <div class="content-body">
       <div class="staff-member">
-        <Image src={staffSanga} alt="山河" class="staff-photo" widths={[200, 400]} sizes="180px" />
-        <h3>山河 <span>sanga</span></h3>
-        <p>
-          前職の広告代理店での経験を活かし、写真・動画撮影から編集、SNS運用までワンストップで対応。
-          運用に携わるSNSアカウントの総フォロワー数は5万人を超えました。
-        </p>
+        <Image src={staffSanga} alt="山河" class="staff-photo" widths={[200, 400]} sizes="140px" />
+        <div class="staff-text">
+          <h3>山河 <span>sanga</span></h3>
+          <p>
+            前職の広告代理店での経験を活かし、写真・動画撮影から編集、SNS運用までワンストップで対応。
+            運用に携わるSNSアカウントの総フォロワー数は5万人を超えました。
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -301,28 +303,32 @@ const instagramReels = [
   }
 
   .staff-member {
-    max-width: 360px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 24px;
   }
   .staff-member :global(.staff-photo) {
+    flex-shrink: 0;
     width: 140px;
     height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 16px;
     display: block;
+  }
+  .staff-text {
+    flex: 1;
   }
   .staff-member h3 {
     margin: 0 0 12px;
     font-size: 17px;
   }
   .staff-member h3 span {
-    display: block;
+    display: inline-block;
     font-size: 12px;
     font-weight: normal;
     color: var(--color-teal);
     letter-spacing: 1px;
-    margin-top: 2px;
+    margin-left: 8px;
   }
   .staff-member p {
     margin: 0;
@@ -361,5 +367,7 @@ const instagramReels = [
     .content { flex-direction: column; }
     .section-label { writing-mode: horizontal-tb; }
     .aerial-grid { flex-direction: column; }
+    .staff-member { flex-direction: column; text-align: center; }
+    .staff-member p { text-align: left; }
   }
 </style>
