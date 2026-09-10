@@ -100,7 +100,9 @@ const instagramReels = [
       <VideoCarousel videos={seriesVideos} />
 
       <h3>その他</h3>
-      <p>チャンネルさんくん、チャンネルきょうちゃんのYouTube・Instagram 撮影・編集・運用</p>
+      <p>
+        <a href="https://www.instagram.com/channelsankun/" target="_blank" rel="noopener">チャンネルさんくん</a>、<a href="https://www.instagram.com/kyokyokyoch/" target="_blank" rel="noopener">チャンネルきょうちゃん</a>のYouTube・Instagram 撮影・編集・運用
+      </p>
       <VideoCarousel videos={otherVideos} />
 
       <h3>ショート動画 撮影編集</h3>
@@ -167,6 +169,10 @@ const instagramReels = [
     line-height: 2;
     color: #33423E;
     margin: 0 0 16px;
+  }
+  .content-body p a {
+    color: var(--color-teal);
+    font-weight: 600;
   }
   .content-body h3 {
     font-size: 15px;
