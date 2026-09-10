@@ -24,6 +24,7 @@ import creativePhoto3 from '../assets/photos/creative3.jpg';
 import webshopPhoto1 from '../assets/photos/webshop1.jpg';
 import webshopPhoto2 from '../assets/photos/webshop2.jpg';
 import webshopPhoto3 from '../assets/photos/webshop3.jpg';
+import guesthouseDream from '../assets/photos/guesthouse-dream.jpg';
 ---
 <Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
   <section class="hero">
@@ -90,27 +91,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
 
       <div class="card card-dream">
         <div class="card-image">
-          <svg viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="いつか海辺に建てたいゲストハウスのイラスト">
-            <rect x="0" y="0" width="400" height="140" fill="#EAF7F6" />
-            <circle cx="345" cy="28" r="16" fill="#FFD97D" />
-            <ellipse cx="60" cy="26" rx="22" ry="9" fill="#FFFFFF" opacity="0.8" />
-            <ellipse cx="80" cy="20" rx="16" ry="8" fill="#FFFFFF" opacity="0.8" />
-            <path d="M120 40 L128 32 L136 40" fill="none" stroke="#04342C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
-            <path d="M255 30 L263 22 L271 30" fill="none" stroke="#04342C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
-            <rect x="0" y="92" width="400" height="18" fill="#F2E4C8" />
-            <path d="M0,104 C40,92 80,116 120,104 C160,92 200,116 240,104 C280,92 320,116 360,104 C380,98 400,104 400,104 L400,140 L0,140 Z" fill="#17BEBB" />
-            <path d="M0,100 C40,90 80,110 120,100 C160,90 200,110 240,100 C280,90 320,110 360,100 C380,96 400,100 400,100" fill="none" stroke="#5ED4D1" stroke-width="3" stroke-linecap="round" opacity="0.7" />
-            <path d="M118 100 C112 80 118 62 124 96 C128 74 136 60 132 98" fill="#3FA79E" />
-            <polygon points="190,22 245,58 135,58" fill="#0E8E8B" />
-            <rect x="205" y="15" width="12" height="25" fill="#0E8E8B" />
-            <circle cx="210" cy="11" r="3.2" fill="#FFFFFF" opacity="0.85" />
-            <circle cx="215" cy="6" r="2.4" fill="#FFFFFF" opacity="0.7" />
-            <circle cx="208" cy="2" r="1.6" fill="#FFFFFF" opacity="0.55" />
-            <rect x="148" y="58" width="84" height="42" rx="4" fill="#FFFDF8" stroke="#04342C" stroke-width="2" />
-            <rect x="176" y="76" width="18" height="24" rx="2" fill="#B98B5E" />
-            <circle cx="209" cy="76" r="9" fill="#BEEAE8" stroke="#0E8E8B" stroke-width="2" />
-            <path d="M209 67 L209 85 M200 76 L218 76" stroke="#0E8E8B" stroke-width="1.5" />
-          </svg>
+          <Image src={guesthouseDream} alt="いつか作りたいゲストハウスのイメージ" width={400} height={280} />
         </div>
         <h3>ゲストハウス</h3>
         <p>牟岐の海を眺めながらのんびり泊まれる場所を、いつか作れたら…そんな夢をあたためています。</p>
@@ -390,10 +371,12 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   .card-dream .card-image {
     background: #EAF7F6;
   }
-  .card-dream .card-image svg {
+  .card-dream .card-image :global(img) {
     display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
   }
   .pill-dream {
     border-style: dashed;
