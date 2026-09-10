@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Slideshow from '../../components/Slideshow.astro';
 import LogoPattern from '../../components/LogoPattern.astro';
 import VideoCarousel from '../../components/VideoCarousel.astro';
+import InstagramCarousel from '../../components/InstagramCarousel.astro';
 import creativePhoto1 from '../../assets/photos/creative1.jpg';
 import creativePhoto2 from '../../assets/photos/creative2.jpg';
 import creativePhoto3 from '../../assets/photos/creative3.jpg';
@@ -35,9 +36,16 @@ const seriesVideos = [
 ];
 
 const otherVideos = [
-  { id: 'bqyUVSn8owU', title: '漁師ガイドと学ぶスノーケル体験【徳島県牟岐町マリンスポーツ】' },
   { id: 'Y0Rx8uDwzy8', title: 'チャンネルさんくん：渓流釣りは【じゃがりこ】だった！' },
   { id: 'bz5DMyXChXc', title: 'チャンネルきょうちゃん：田舎暮らし女子の現実' },
+];
+
+const instagramReels = [
+  'https://www.instagram.com/reel/DckTNEnRQVG/',
+  'https://www.instagram.com/reel/C-FODmgv0RG/',
+  'https://www.instagram.com/reel/C6NwXAohB9I/',
+  'https://www.instagram.com/reel/DAeht4mPpOG/',
+  'https://www.instagram.com/reel/DDEBMVwvs1v/',
 ];
 ---
 <Layout
@@ -88,12 +96,15 @@ const otherVideos = [
   <section class="content">
     <div class="section-label">動画制作</div>
     <div class="content-body">
-      <h3>一般社団法人みなみ阿波観光局「だいしのみなみ阿波大冒険」シリーズ</h3>
+      <h3>横型動画 撮影編集</h3>
       <VideoCarousel videos={seriesVideos} />
 
       <h3>その他</h3>
       <p>チャンネルさんくん、チャンネルきょうちゃんのYouTube・Instagram 撮影・編集・運用</p>
       <VideoCarousel videos={otherVideos} />
+
+      <h3>ショート動画 撮影編集</h3>
+      <InstagramCarousel urls={instagramReels} />
     </div>
   </section>
 
@@ -149,6 +160,7 @@ const otherVideos = [
   }
   .content-body {
     flex: 1;
+    min-width: 0;
   }
   .content-body p {
     font-size: 14px;

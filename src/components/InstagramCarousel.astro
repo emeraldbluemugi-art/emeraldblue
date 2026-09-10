@@ -1,0 +1,45 @@
+---
+interface Props {
+  urls: string[];
+}
+
+const { urls } = Astro.props;
+---
+
+<div class="ig-carousel">
+  {urls.map((url) => (
+    <div class="ig-card">
+      <blockquote class="instagram-media" data-instgrm-permalink={url} data-instgrm-version="14">
+        <a href={url} target="_blank" rel="noopener">Instagramで見る</a>
+      </blockquote>
+    </div>
+  ))}
+</div>
+
+<script is:inline src="https://www.instagram.com/embed.js"></script>
+
+<style>
+  .ig-carousel {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 4px 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ig-carousel::-webkit-scrollbar {
+    height: 6px;
+  }
+  .ig-carousel::-webkit-scrollbar-thumb {
+    background: #D8D4CA;
+    border-radius: 999px;
+  }
+  .ig-card {
+    flex: 0 0 auto;
+    width: 330px;
+    scroll-snap-align: start;
+  }
+  .ig-card :global(iframe) {
+    max-width: 100% !important;
+  }
+</style>
