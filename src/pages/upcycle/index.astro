@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Slideshow from '../../components/Slideshow.astro';
+import LogoPattern from '../../components/LogoPattern.astro';
+import upcyclePhoto1 from '../../assets/photos/upcycle1.jpg';
+import upcyclePhoto2 from '../../assets/photos/upcycle2.jpg';
+import upcyclePhoto3 from '../../assets/photos/upcycle3.jpg';
+---
+<Layout
+  title="アップサイクル事業 | emeraldblue"
+  description="徳島県牟岐町のemeraldblueが開催する、海洋プラスチックを使ったアップサイクル体験のご案内。料金や内容はこちら。"
+>
+  <section class="page-hero">
+    <Slideshow
+      images={[upcyclePhoto1, upcyclePhoto2, upcyclePhoto3]}
+      alt="アップサイクル体験の様子"
+      intervalMs={5000}
+      class="page-hero-slideshow"
+      widths={[800, 1600]}
+      sizes="100vw"
+    />
+    <div class="page-hero-overlay"></div>
+    <h1>アップサイクル事業</h1>
+  </section>
+
+  <LogoPattern />
+
+  <section class="content">
+    <div class="section-label">アップサイクル体験</div>
+    <div class="content-body">
+      <p class="tagline">〜海を知り、海を守るものづくり〜</p>
+      <p>
+        今、世界中の海で深刻な問題となっている「海洋ごみ」。<br />
+        私たちが暮らす牟岐町の美しい海も、その影響を受けつつあります。
+      </p>
+      <p>
+        emerald blueでは、そんな海の現状を知り、未来の海を守るために、海洋プラスチックを使ったアップサイクル体験を開催しています。
+      </p>
+      <p>
+        イベントでは、牟岐の海のこと、そして世界の海のことについてお話しし、私たち一人ひとりが日常の中でできる海洋保護の取り組みについても、分かりやすくお伝えします。
+      </p>
+      <p>
+        そして、実際に海岸で集めたプラスチックごみや貝殻を使って、世界でひとつだけのオリジナル作品づくりに挑戦。
+      </p>
+      <p>
+        海を感じ、海を知り、海を守る。楽しみながら海とのつながりを再発見できる、そんな時間を一緒に過ごしませんか？
+      </p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="section-label">料金・内容</div>
+    <div class="content-body">
+      <div class="price-card">
+        <h3>アップサイクル体験</h3>
+        <div class="price-table">
+          <div class="price-row">
+            <span>おひとり</span>
+            <strong>3,000円<small>(税込)</small></strong>
+          </div>
+        </div>
+        <p class="price-note">
+          ※当日、現金のみのご清算となります。
+        </p>
+        <h4>内容</h4>
+        <p class="price-note">
+          牟岐の海のこと、世界の海のこと、海洋ごみについて学んだあと、海洋プラスチックやモラスコむぎの貝殻を使って、世界でひとつだけのオリジナルコースターを作ります✨
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <p>体験のご予約・お問い合わせはこちらから</p>
+    <a href="/#contact" class="cta-button">お問い合わせはこちら</a>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    height: 40vh;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+  }
+  .page-hero :global(.page-hero-slideshow) {
+    position: absolute;
+    inset: 0;
+  }
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,40,40,0.4);
+  }
+  .page-hero h1 {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-size: 36px;
+    margin: 0;
+  }
+
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 24px;
+    display: flex;
+    gap: 32px;
+  }
+  .section-label {
+    writing-mode: vertical-rl;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+  .content-body {
+    flex: 1;
+  }
+  .content-body p {
+    font-size: 14px;
+    line-height: 2;
+    color: #33423E;
+    margin: 0 0 24px;
+  }
+  .content-body .tagline {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .price-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .price-card h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+  }
+  .price-card h4 {
+    margin: 24px 0 8px;
+    font-size: 15px;
+  }
+  .price-table {
+    margin: 16px 0;
+    border-top: 1px solid #E5E1D6;
+  }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid #E5E1D6;
+    font-size: 14px;
+  }
+  .price-row strong {
+    font-size: 20px;
+    color: var(--color-ink);
+  }
+  .price-row strong small {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 4px;
+  }
+  .price-note {
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+    color: #4A5A56 !important;
+    margin: 0 !important;
+  }
+
+  .cta {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+    text-align: center;
+  }
+  .cta p {
+    font-size: 14px;
+    color: #4A5A56;
+    margin: 0 0 16px;
+  }
+  .cta-button {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 40px;
+    border-radius: 999px;
+    background: var(--color-teal);
+    color: white;
+    text-decoration: none;
+  }
+  .cta-button:hover {
+    background: #139A97;
+  }
+
+  @media (max-width: 640px) {
+    .content { flex-direction: column; }
+    .section-label { writing-mode: horizontal-tb; }
+  }
+</style>
