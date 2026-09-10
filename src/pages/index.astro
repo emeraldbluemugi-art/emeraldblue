@@ -291,6 +291,18 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   .message-content h2 {
     font-size: 22px;
     margin: 0 0 16px;
+    position: relative;
+    padding-bottom: 14px;
+  }
+  .message-content h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--color-teal);
+    border-radius: 2px;
   }
   .message-content p {
     font-size: 14px;
@@ -323,6 +335,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     color: var(--color-ink);
     background: white;
     border-radius: 16px;
+    border-left: 3px solid var(--color-teal);
     padding: 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   }
@@ -395,6 +408,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     color: var(--color-ink);
     background: white;
     border-radius: 16px;
+    border-left: 3px solid var(--color-teal);
     padding: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
