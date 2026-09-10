@@ -2,11 +2,38 @@
 interface Props {
   title: string;
   description?: string;
+  lang?: 'ja' | 'en';
+  section?: '' | 'marine' | 'upcycle' | 'creative';
 }
-const { title, description = "徳島県牟岐町emeraldblue。マリンサービス・アップサイクル・撮影/映像制作を行っています。" } = Astro.props;
+const {
+  title,
+  description = "徳島県牟岐町emeraldblue。マリンサービス・アップサイクル・撮影/映像制作を行っています。",
+  lang = 'ja',
+  section = '',
+} = Astro.props;
+
+const jaHref = section === '' ? '/' : `/${section}/`;
+const enHref = section === '' ? '/en/' : `/en/${section}/`;
+const home = lang === 'en' ? '/en/' : '/';
+
+const navJa = [
+  { href: '/#services', label: '私たちのこと' },
+  { href: '/marine/', label: 'マリンサービス' },
+  { href: '/upcycle/', label: 'アップサイクル' },
+  { href: '/creative/', label: '撮影・映像' },
+  { href: '/#contact', label: 'お問い合わせ' },
+];
+const navEn = [
+  { href: '/en/#services', label: 'About Us' },
+  { href: '/en/marine/', label: 'Marine Service' },
+  { href: '/en/upcycle/', label: 'Upcycle' },
+  { href: '/en/creative/', label: 'Photo & Video' },
+  { href: '/en/#contact', label: 'Contact' },
+];
+const nav = lang === 'en' ? navEn : navJa;
 ---
 <!doctype html>
-<html lang="ja">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
@@ -20,17 +47,15 @@ const { title, description = "徳島県牟岐町emeraldblue。マリンサービ
 <body>
   <header class="site-header">
     <nav>
-      <a href="/" class="logo">emeraldblue</a>
+      <a href={home} class="logo">emeraldblue</a>
       <ul>
-        <li><a href="/about/">私たちのこと</a></li>
-        <li><a href="/marine/">マリンサービス</a></li>
-        <li><a href="/upcycle/">アップサイクル</a></li>
-        <li><a href="/creative/">撮影・映像</a></li>
-        <li><a href="/#contact">お問い合わせ</a></li>
+        {nav.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
       </ul>
       <div class="lang-switch">
-        <a href="/" class="active">JA</a>
-        <a href="/en/">EN</a>
+        <a href={jaHref} class={lang === 'ja' ? 'active' : ''}>JA</a>
+        <a href={enHref} class={lang === 'en' ? 'active' : ''}>EN</a>
       </div>
     </nav>
   </header>
@@ -40,7 +65,9 @@ const { title, description = "徳島県牟岐町emeraldblue。マリンサービ
   </main>
 
   <footer class="site-footer">
-    <p>&copy; emeraldblue, 牟岐町, 徳島県</p>
+    {lang === 'en'
+      ? <p>&copy; emeraldblue, Mugi, Tokushima, Japan</p>
+      : <p>&copy; emeraldblue, 牟岐町, 徳島県</p>}
   </footer>
 </body>
 </html>

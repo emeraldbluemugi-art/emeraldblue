@@ -1,94 +1,95 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Slideshow from '../../components/Slideshow.astro';
-import LogoPattern from '../../components/LogoPattern.astro';
-import PhotoScatter from '../../components/PhotoScatter.astro';
-import upcyclePhoto1 from '../../assets/photos/upcycle1.jpg';
-import upcyclePhoto2 from '../../assets/photos/upcycle2.jpg';
-import upcyclePhoto3 from '../../assets/photos/upcycle3.jpg';
-import galleryPhoto1 from '../../assets/photos/upcycle-gallery1.jpg';
-import galleryPhoto2 from '../../assets/photos/upcycle-gallery2.jpg';
-import galleryPhoto3 from '../../assets/photos/upcycle-gallery3.jpg';
-import galleryPhoto4 from '../../assets/photos/upcycle-gallery4.jpg';
-import galleryPhoto5 from '../../assets/photos/upcycle-gallery5.jpg';
-import galleryPhoto6 from '../../assets/photos/upcycle-gallery6.jpg';
-import galleryPhoto7 from '../../assets/photos/upcycle-gallery7.jpg';
-import galleryPhoto8 from '../../assets/photos/upcycle-gallery8.jpg';
-import galleryPhoto9 from '../../assets/photos/upcycle-gallery9.jpg';
+import Layout from '../../../layouts/Layout.astro';
+import Slideshow from '../../../components/Slideshow.astro';
+import LogoPattern from '../../../components/LogoPattern.astro';
+import PhotoScatter from '../../../components/PhotoScatter.astro';
+import upcyclePhoto1 from '../../../assets/photos/upcycle1.jpg';
+import upcyclePhoto2 from '../../../assets/photos/upcycle2.jpg';
+import upcyclePhoto3 from '../../../assets/photos/upcycle3.jpg';
+import galleryPhoto1 from '../../../assets/photos/upcycle-gallery1.jpg';
+import galleryPhoto2 from '../../../assets/photos/upcycle-gallery2.jpg';
+import galleryPhoto3 from '../../../assets/photos/upcycle-gallery3.jpg';
+import galleryPhoto4 from '../../../assets/photos/upcycle-gallery4.jpg';
+import galleryPhoto5 from '../../../assets/photos/upcycle-gallery5.jpg';
+import galleryPhoto6 from '../../../assets/photos/upcycle-gallery6.jpg';
+import galleryPhoto7 from '../../../assets/photos/upcycle-gallery7.jpg';
+import galleryPhoto8 from '../../../assets/photos/upcycle-gallery8.jpg';
+import galleryPhoto9 from '../../../assets/photos/upcycle-gallery9.jpg';
 ---
 <Layout
-  title="アップサイクル事業 | emeraldblue"
-  description="徳島県牟岐町のemeraldblueが開催する、海洋プラスチックを使ったアップサイクル体験のご案内。料金や内容はこちら。"
+  title="Upcycling | emeraldblue"
+  description="emeraldblue's upcycling workshop using ocean plastic, held in Mugi, Tokushima. See pricing and details here."
+  lang="en"
   section="upcycle"
 >
   <section class="page-hero">
     <Slideshow
       images={[upcyclePhoto1, upcyclePhoto2, upcyclePhoto3]}
-      alt="アップサイクル体験の様子"
+      alt="Upcycling workshop in action"
       intervalMs={5000}
       class="page-hero-slideshow"
       widths={[800, 1600]}
       sizes="100vw"
     />
     <div class="page-hero-overlay"></div>
-    <h1>アップサイクル事業</h1>
+    <h1>Upcycling</h1>
   </section>
 
   <LogoPattern />
 
   <section class="content">
-    <div class="section-label">アップサイクル体験</div>
+    <div class="section-label">Upcycling Workshop</div>
     <div class="content-body">
-      <p class="tagline">〜海を知り、海を守るものづくり〜</p>
+      <p class="tagline">Know the sea. Protect the sea. Make something from it.</p>
       <p>
-        今、世界中の海で深刻な問題となっている「海洋ごみ」。<br />
-        私たちが暮らす牟岐町の美しい海も、その影響を受けつつあります。
+        "Marine debris" has become a serious problem in oceans around the world.<br />
+        The beautiful sea we live by here in Mugi is beginning to feel its effects too.
       </p>
       <p>
-        emerald blueでは、そんな海の現状を知り、未来の海を守るために、海洋プラスチックを使ったアップサイクル体験を開催しています。
+        At emerald blue, we hold upcycling workshops using ocean plastic so people can learn about the state of the sea today and help protect the sea of tomorrow.
       </p>
       <p>
-        イベントでは、牟岐の海のこと、そして世界の海のことについてお話しし、私たち一人ひとりが日常の中でできる海洋保護の取り組みについても、分かりやすくお伝えします。
+        During the event, we talk about the sea here in Mugi and about oceans around the world, and share in an easy-to-understand way the things each of us can do in daily life to help protect the ocean.
       </p>
       <p>
-        そして、実際に海岸で集めたプラスチックごみや貝殻を使って、世界でひとつだけのオリジナル作品づくりに挑戦。
+        Then, using plastic waste and shells actually collected from the coast, participants try their hand at making a one-of-a-kind original piece.
       </p>
       <p>
-        海を感じ、海を知り、海を守る。楽しみながら海とのつながりを再発見できる、そんな時間を一緒に過ごしませんか？
+        Feel the sea, know the sea, protect the sea. Won't you spend some time with us rediscovering our connection to the ocean while having fun?
       </p>
     </div>
   </section>
 
   <PhotoScatter
     images={[galleryPhoto1, galleryPhoto2, galleryPhoto3, galleryPhoto4, galleryPhoto5, galleryPhoto6, galleryPhoto7, galleryPhoto8, galleryPhoto9]}
-    alt="アップサイクル体験ワークショップの様子"
+    alt="Scenes from the upcycling workshop"
   />
 
   <section class="content">
-    <div class="section-label">料金・内容</div>
+    <div class="section-label">Pricing & Details</div>
     <div class="content-body">
       <div class="price-card">
-        <h3>アップサイクル体験</h3>
+        <h3>Upcycling Workshop</h3>
         <div class="price-table">
           <div class="price-row">
-            <span>おひとり</span>
-            <strong>3,000円<small>(税込)</small></strong>
+            <span>Per person</span>
+            <strong>&yen;3,000<small>(tax incl.)</small></strong>
           </div>
         </div>
         <p class="price-note">
-          ※当日、現金のみのご清算となります。
+          &#8251; Payment is by cash only, on the day.
         </p>
-        <h4>内容</h4>
+        <h4>Details</h4>
         <p class="price-note">
-          牟岐の海のこと、世界の海のこと、海洋ごみについて学んだあと、海洋プラスチックやモラスコむぎの貝殻を使って、世界でひとつだけのオリジナルコースターを作ります✨
+          After learning about the sea in Mugi, oceans around the world, and marine debris, you'll use ocean plastic and shells from Morasco Mugi to make your own one-of-a-kind coaster. &#10024;
         </p>
       </div>
     </div>
   </section>
 
   <section class="cta">
-    <p>体験のご予約・お問い合わせはこちらから</p>
-    <a href="/#contact" class="cta-button">お問い合わせはこちら</a>
+    <p>For bookings and inquiries, please contact us here</p>
+    <a href="/en/#contact" class="cta-button">Contact Us</a>
   </section>
 </Layout>
 

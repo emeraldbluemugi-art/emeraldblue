@@ -1,122 +1,123 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Slideshow from '../../components/Slideshow.astro';
-import LogoPattern from '../../components/LogoPattern.astro';
-import marineservice1 from '../../assets/photos/marineservice1.jpg';
-import marineservice2 from '../../assets/photos/marineservice2.jpg';
-import marineservice3 from '../../assets/photos/marineservice3.jpg';
-import marineservice4 from '../../assets/photos/marineservice4.jpg';
-import marineservice5 from '../../assets/photos/marineservice5.jpg';
+import Layout from '../../../layouts/Layout.astro';
+import Slideshow from '../../../components/Slideshow.astro';
+import LogoPattern from '../../../components/LogoPattern.astro';
+import marineservice1 from '../../../assets/photos/marineservice1.jpg';
+import marineservice2 from '../../../assets/photos/marineservice2.jpg';
+import marineservice3 from '../../../assets/photos/marineservice3.jpg';
+import marineservice4 from '../../../assets/photos/marineservice4.jpg';
+import marineservice5 from '../../../assets/photos/marineservice5.jpg';
 ---
 <Layout
-  title="マリンサービス | emeraldblue"
-  description="徳島県牟岐町のemeraldblueが提供するスノーケリング・マリンサービスのご案内。料金や体験動画はこちら。"
+  title="Marine Service | emeraldblue"
+  description="Snorkeling and marine service in Mugi, Tokushima by emeraldblue. See pricing and experience videos here."
+  lang="en"
   section="marine"
 >
   <section class="page-hero">
     <Slideshow
       images={[marineservice1, marineservice2, marineservice3, marineservice4, marineservice5]}
-      alt="マリンサービスの様子"
+      alt="Marine service in action"
       intervalMs={5000}
       class="page-hero-slideshow"
       widths={[800, 1600]}
       sizes="100vw"
     />
     <div class="page-hero-overlay"></div>
-    <h1>マリンサービス</h1>
+    <h1>Marine Service</h1>
   </section>
 
   <LogoPattern />
 
   <section class="content">
-    <div class="section-label">スノーケリング</div>
+    <div class="section-label">Snorkeling</div>
     <div class="content-body">
       <p>
-        emerald blueでは、全スタッフがスノーケルインストラクター資格を保有。<br />
-        なかには現役の漁師でありながら、インストラクター資格も持つガイドも。<br />
-        魚の見つけ方や潮の読み方など、海のプロならではの知恵と経験を生かしたガイドが好評です。<br />
-        地元の漁師さんや漁協と連携し、安心・安全に楽しめるマリンレジャーを目指しています。自然の豊かさと、人の温かさにふれる特別な時間を、ぜひ体験してみませんか？
+        Every staff member at emerald blue holds a snorkel instructor qualification.<br />
+        Some of our guides are even active fishermen who also hold instructor certification.<br />
+        Our guides are well loved for putting their pro-level knowledge of finding fish and reading the tides to good use.<br />
+        Working together with local fishermen and the fishery cooperative, we aim to offer marine leisure you can enjoy safely and securely. Why not experience a special time in touch with the richness of nature and the warmth of the people here?
       </p>
       <div class="video-row">
         <div class="video-item">
           <div class="video-embed">
             <iframe
               src="https://www.youtube.com/embed/pXEMLIPVLDU"
-              title="牟岐の海の様子"
+              title="Scenery of the sea in Mugi"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
           </div>
-          <p class="video-caption">牟岐の海の様子</p>
+          <p class="video-caption">Scenery of the sea in Mugi</p>
         </div>
         <div class="video-item">
           <div class="video-embed">
             <iframe
               src="https://www.youtube.com/embed/bqyUVSn8owU"
-              title="漁師ガイドと学ぶスノーケリング体験"
+              title="Snorkeling with a fisherman guide"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
           </div>
-          <p class="video-caption">漁師ガイドと学ぶスノーケリング体験</p>
+          <p class="video-caption">Snorkeling with a fisherman guide</p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="content">
-    <div class="section-label">ダイビング</div>
+    <div class="section-label">Diving</div>
     <div class="content-body">
       <p>
-        牟岐町では、タンク潜水はまだできません。<br />
-        『マリン事業・漁業・海洋保全』の全てが両立できる仕組みを、
-        この牟岐の海で少しずつ形にしていきたいと思っています。<br />
-        それまで見守っていてほしいです。
+        Tank diving is not yet available in Mugi.<br />
+        We hope to gradually build, right here in the sea of Mugi, a system where marine tourism, fishing, and
+        ocean conservation can all coexist.<br />
+        We'd love for you to keep watching until then.
       </p>
       <div class="blog-feature">
-        <h3>ダイビングができるまでの記録</h3>
-        <p>タンク潜水の実現に向けた、emeraldblueの取り組みや歩みをここに綴っていく予定です。</p>
+        <h3>The Road to Diving</h3>
+        <p>We plan to record emeraldblue's efforts and progress here as we work toward offering tank diving.</p>
         <span class="pill">coming soon</span>
       </div>
     </div>
   </section>
 
   <section class="content">
-    <div class="section-label">料金</div>
+    <div class="section-label">Pricing</div>
     <div class="content-body">
       <div class="price-card">
-        <h3>スノーケリング</h3>
+        <h3>Snorkeling</h3>
         <p>
-          その日のベストなスポットへガイドがご案内。<br />
-          初心者の方や、お子様連れも安心の少人数制。<br />
-          全てのガイドがスノーケルインストラクター資格保有。
+          Our guides take you to the best spot of the day.<br />
+          Small groups make it safe for beginners and families with children.<br />
+          All guides hold a snorkel instructor qualification.
         </p>
         <div class="price-table">
           <div class="price-row">
-            <span>大人(中学生以上)</span>
-            <strong>6,000円<small>(税込)</small></strong>
+            <span>Adult (jr. high school and up)</span>
+            <strong>&yen;6,000<small>(tax incl.)</small></strong>
           </div>
           <div class="price-row">
-            <span>子ども(小学生)</span>
-            <strong>4,000円<small>(税込)</small></strong>
+            <span>Child (elementary school)</span>
+            <strong>&yen;4,000<small>(tax incl.)</small></strong>
           </div>
         </div>
         <p class="price-note">
-          ※参加料金に含まれるもの<br />
-          ・機材レンタル(ライフジャケット/フィン/マスク/シュノーケル)<br />
-          ・施設使用料(シャワー/更衣室)<br />
-          ・ガイド料<br />
-          ※当日、現金でのご清算となります。
+          &#8251; Included in the price<br />
+          &middot; Gear rental (life jacket / fins / mask / snorkel)<br />
+          &middot; Facility use (shower / changing room)<br />
+          &middot; Guide fee<br />
+          &#8251; Payment is by cash on the day.
         </p>
       </div>
     </div>
   </section>
 
   <section class="cta">
-    <p>体験のご予約・お問い合わせはこちらから</p>
-    <a href="/#contact" class="cta-button">お問い合わせはこちら</a>
+    <p>For bookings and inquiries, please contact us here</p>
+    <a href="/en/#contact" class="cta-button">Contact Us</a>
   </section>
 </Layout>
 

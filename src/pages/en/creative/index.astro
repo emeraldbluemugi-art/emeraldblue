@@ -1,47 +1,47 @@
 ---
 import { Image } from 'astro:assets';
-import Layout from '../../layouts/Layout.astro';
-import Slideshow from '../../components/Slideshow.astro';
-import LogoPattern from '../../components/LogoPattern.astro';
-import VideoCarousel from '../../components/VideoCarousel.astro';
-import InstagramCarousel from '../../components/InstagramCarousel.astro';
-import staffSanga from '../../assets/photos/staff-sanga.jpg';
-import creativePhoto1 from '../../assets/photos/creative1.jpg';
-import creativePhoto2 from '../../assets/photos/creative2.jpg';
-import creativePhoto3 from '../../assets/photos/creative3.jpg';
-import award1 from '../../assets/photos/photo-award1.jpg';
-import award2 from '../../assets/photos/photo-award2.jpg';
-import award3 from '../../assets/photos/photo-award3.jpg';
-import award4 from '../../assets/photos/photo-award4.jpg';
-import award5 from '../../assets/photos/photo-award5.jpg';
-import award6 from '../../assets/photos/photo-award6.jpg';
-import award7 from '../../assets/photos/photo-award7.jpg';
-import award8 from '../../assets/photos/photo-award8.jpg';
-import award9 from '../../assets/photos/photo-award9.jpg';
-import award10 from '../../assets/photos/photo-award10.jpg';
-import award11 from '../../assets/photos/photo-award11.jpg';
-import award12 from '../../assets/photos/photo-award12.jpg';
-import award13 from '../../assets/photos/photo-award13.jpg';
-import award14 from '../../assets/photos/photo-award14.jpg';
-import award15 from '../../assets/photos/photo-award15.jpg';
-import aerial1 from '../../assets/photos/aerial1.jpg';
-import aerial2 from '../../assets/photos/aerial2.jpg';
+import Layout from '../../../layouts/Layout.astro';
+import Slideshow from '../../../components/Slideshow.astro';
+import LogoPattern from '../../../components/LogoPattern.astro';
+import VideoCarousel from '../../../components/VideoCarousel.astro';
+import InstagramCarousel from '../../../components/InstagramCarousel.astro';
+import staffSanga from '../../../assets/photos/staff-sanga.jpg';
+import creativePhoto1 from '../../../assets/photos/creative1.jpg';
+import creativePhoto2 from '../../../assets/photos/creative2.jpg';
+import creativePhoto3 from '../../../assets/photos/creative3.jpg';
+import award1 from '../../../assets/photos/photo-award1.jpg';
+import award2 from '../../../assets/photos/photo-award2.jpg';
+import award3 from '../../../assets/photos/photo-award3.jpg';
+import award4 from '../../../assets/photos/photo-award4.jpg';
+import award5 from '../../../assets/photos/photo-award5.jpg';
+import award6 from '../../../assets/photos/photo-award6.jpg';
+import award7 from '../../../assets/photos/photo-award7.jpg';
+import award8 from '../../../assets/photos/photo-award8.jpg';
+import award9 from '../../../assets/photos/photo-award9.jpg';
+import award10 from '../../../assets/photos/photo-award10.jpg';
+import award11 from '../../../assets/photos/photo-award11.jpg';
+import award12 from '../../../assets/photos/photo-award12.jpg';
+import award13 from '../../../assets/photos/photo-award13.jpg';
+import award14 from '../../../assets/photos/photo-award14.jpg';
+import award15 from '../../../assets/photos/photo-award15.jpg';
+import aerial1 from '../../../assets/photos/aerial1.jpg';
+import aerial2 from '../../../assets/photos/aerial2.jpg';
 
 const awardPhotos = [award1, award2, award3, award4, award5, award6, award7, award8, award9, award10, award11, award12, award13, award14, award15];
 
 const seriesVideos = [
-  { id: 'jVDHNda3LWM', title: '【2025】ふるさと教育プログラムツアー' },
-  { id: '6VEGc9zZJ2o', title: '【みなみ阿波推し釣りガール】白アマダイ釣り' },
-  { id: 'TMzT7ElhrtI', title: '海陽町・宍喰でお米収穫体験＆新米を味わうヘルシーな休日ツアー' },
-  { id: 'sGuELMdWI1A', title: '～ゆず香る風にのって～ 那賀町・木頭 五感が喜ぶ秋のしずく旅' },
+  { id: 'jVDHNda3LWM', title: '[2025] Hometown Education Program Tour' },
+  { id: '6VEGc9zZJ2o', title: '[Minami Awa Fishing Girls] White Tilefish Fishing' },
+  { id: 'TMzT7ElhrtI', title: 'A healthy weekend rice-harvest tour in Kaiyo Town, Shishikui' },
+  { id: 'sGuELMdWI1A', title: 'On a yuzu-scented breeze — an autumn trip for the senses in Kito, Naka' },
   { id: 'ljpqTG_zjvU', title: 'Tokushima surfing trip' },
-  { id: 'PqHtpuVLUeI', title: '～赤と橙に彩る～阿南の歴史と加茂谷 自然のサイクリング旅' },
-  { id: 'YtvnidY0_bQ', title: '【2026】みなみ阿波PV' },
+  { id: 'PqHtpuVLUeI', title: 'Painted in red and orange — a cycling trip through Anan and Kamodani' },
+  { id: 'YtvnidY0_bQ', title: '[2026] Minami Awa Promotional Video' },
 ];
 
 const otherVideos = [
-  { id: 'Y0Rx8uDwzy8', title: 'チャンネルさんくん：渓流釣りは【じゃがりこ】だった！' },
-  { id: 'bz5DMyXChXc', title: 'チャンネルきょうちゃん：田舎暮らし女子の現実' },
+  { id: 'Y0Rx8uDwzy8', title: 'Channel Sankun: Stream fishing turned into Jagarico!' },
+  { id: 'bz5DMyXChXc', title: 'Channel Kyo-chan: The reality of country life' },
 ];
 
 const instagramReels = [
@@ -53,108 +53,110 @@ const instagramReels = [
 ];
 ---
 <Layout
-  title="写真・映像撮影/動画制作/広告 | emeraldblue"
-  description="徳島県牟岐町のemeraldblueによる写真・空撮・動画制作の実績紹介。受賞歴やSNS運用実績はこちら。"
+  title="Photo / Video / Advertising | emeraldblue"
+  description="Photography, aerial shots, and video production by emeraldblue in Mugi, Tokushima. See our awards and SNS work here."
+  lang="en"
   section="creative"
 >
   <section class="page-hero">
     <Slideshow
       images={[creativePhoto1, creativePhoto2, creativePhoto3]}
-      alt="撮影・映像制作の作例"
+      alt="Photo and video production samples"
       intervalMs={5000}
       class="page-hero-slideshow"
       widths={[800, 1600]}
       sizes="100vw"
     />
     <div class="page-hero-overlay"></div>
-    <h1>写真・映像撮影/動画制作/広告</h1>
+    <h1>Photo / Video / Advertising</h1>
   </section>
 
   <LogoPattern />
 
   <section class="content">
-    <div class="section-label">写真</div>
+    <div class="section-label">Photography</div>
     <div class="content-body">
       <div class="photo-grid">
         {awardPhotos.map((photo) => (
-          <Image src={photo} alt="受賞・撮影実績の写真" widths={[200, 400]} sizes="180px" loading="lazy" class="grid-photo" />
+          <Image src={photo} alt="Award-winning and portfolio photo" widths={[200, 400]} sizes="180px" loading="lazy" class="grid-photo" />
         ))}
       </div>
       <ul class="awards">
-        <li>四国フォトコンテスト2025 : 最優秀賞</li>
-        <li>美波町フォトコンテスト2025 : 特別賞</li>
-        <li>徳島県消防団魅力コンテスト2023 : 優秀賞</li>
+        <li>Shikoku Photo Contest 2025: Grand Prize</li>
+        <li>Minami Town Photo Contest 2025: Special Award</li>
+        <li>Tokushima Fire Brigade Charm Contest 2023: Excellence Award</li>
       </ul>
     </div>
   </section>
 
   <section class="content">
-    <div class="section-label">空撮</div>
+    <div class="section-label">Aerial</div>
     <div class="content-body">
       <div class="aerial-grid">
-        <Image src={aerial1} alt="牟岐町の空撮" widths={[400, 800]} sizes="(max-width: 640px) 100vw, 350px" loading="lazy" class="aerial-photo" />
-        <Image src={aerial2} alt="牟岐町の空撮" widths={[400, 800]} sizes="(max-width: 640px) 100vw, 350px" loading="lazy" class="aerial-photo" />
+        <Image src={aerial1} alt="Aerial view of Mugi" widths={[400, 800]} sizes="(max-width: 640px) 100vw, 350px" loading="lazy" class="aerial-photo" />
+        <Image src={aerial2} alt="Aerial view of Mugi" widths={[400, 800]} sizes="(max-width: 640px) 100vw, 350px" loading="lazy" class="aerial-photo" />
       </div>
     </div>
   </section>
 
   <section class="content">
-    <div class="section-label">動画制作</div>
+    <div class="section-label">Video Production</div>
     <div class="content-body">
-      <h3>横型動画 撮影編集</h3>
+      <h3>Landscape Video: Filming & Editing</h3>
       <VideoCarousel videos={seriesVideos} />
 
-      <h3>その他</h3>
+      <h3>Other Work</h3>
       <p>
-        <a href="https://www.instagram.com/channelsankun/" target="_blank" rel="noopener">チャンネルさんくん</a>、<a href="https://www.instagram.com/kyokyokyoch/" target="_blank" rel="noopener">チャンネルきょうちゃん</a>のYouTube・Instagram 撮影・編集・運用
+        Filming, editing, and account management for <a href="https://www.instagram.com/channelsankun/" target="_blank" rel="noopener">Channel Sankun</a> and <a href="https://www.instagram.com/kyokyokyoch/" target="_blank" rel="noopener">Channel Kyo-chan</a> on YouTube and Instagram
       </p>
       <VideoCarousel videos={otherVideos} />
 
-      <h3>ショート動画 撮影編集</h3>
+      <h3>Short-form Video: Filming & Editing</h3>
       <InstagramCarousel urls={instagramReels} />
     </div>
   </section>
 
   <section class="content">
-    <div class="section-label">料金</div>
+    <div class="section-label">Pricing</div>
     <div class="content-body">
       <div class="price-card">
         <div class="price-table">
           <div class="price-row">
-            <span>横型動画 撮影編集込み</span>
-            <strong>50,000円<small>〜</small></strong>
+            <span>Landscape video, filming &amp; editing included</span>
+            <strong>&yen;50,000<small>&#12316;</small></strong>
           </div>
           <div class="price-row">
-            <span>ショート動画 撮影編集込み</span>
-            <strong>20,000円<small>〜</small></strong>
+            <span>Short video, filming &amp; editing included</span>
+            <strong>&yen;20,000<small>&#12316;</small></strong>
           </div>
           <div class="price-row">
-            <span>編集のみ</span>
-            <strong>10,000円<small>〜</small></strong>
+            <span>Editing only</span>
+            <strong>&yen;10,000<small>&#12316;</small></strong>
           </div>
           <div class="price-row">
-            <span>写真撮影</span>
-            <strong>10,000円<small>〜</small></strong>
+            <span>Photography</span>
+            <strong>&yen;10,000<small>&#12316;</small></strong>
           </div>
         </div>
         <p class="price-note">
-          ※別途交通費をいただきます。<br />
-          その他、Instagramアカウント運用・広告運用のご相談も承ります。
+          &#8251; Travel expenses are billed separately.<br />
+          We're also happy to discuss Instagram account management and ad management.
         </p>
       </div>
     </div>
   </section>
 
   <section class="content">
-    <div class="section-label">スタッフ</div>
+    <div class="section-label">Staff</div>
     <div class="content-body">
       <div class="staff-member">
-        <Image src={staffSanga} alt="山河" class="staff-photo" widths={[200, 400]} sizes="140px" />
+        <Image src={staffSanga} alt="Sanga" class="staff-photo" widths={[200, 400]} sizes="140px" />
         <div class="staff-text">
-          <h3>山河 <span>sanga</span></h3>
+          <h3>Sanga <span>sanga</span></h3>
           <p>
-            前職の広告代理店での経験を活かし、写真・動画撮影から編集、SNS運用までワンストップで対応。
-            運用に携わるSNSアカウントの総フォロワー数は5万人を超えました。
+            Drawing on experience at an advertising agency, he handles everything from photography and
+            videography to editing and SNS management in one stop. The accounts he manages have a
+            combined follower count of over 50,000.
           </p>
         </div>
       </div>
@@ -162,8 +164,8 @@ const instagramReels = [
   </section>
 
   <section class="cta">
-    <p>撮影・映像制作のご相談はこちらから</p>
-    <a href="/#contact" class="cta-button">お問い合わせはこちら</a>
+    <p>For inquiries about photo or video production, please contact us here</p>
+    <a href="/en/#contact" class="cta-button">Contact Us</a>
   </section>
 </Layout>
 

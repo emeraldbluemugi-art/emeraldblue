@@ -1,31 +1,36 @@
 ---
 import { Image } from 'astro:assets';
-import Layout from '../layouts/Layout.astro';
-import Slideshow from '../components/Slideshow.astro';
-import PhotoRow from '../components/PhotoRow.astro';
-import LogoPattern from '../components/LogoPattern.astro';
-import staffSanga from '../assets/photos/staff-sanga.jpg';
-import staffKyoka from '../assets/photos/staff-kyoka.jpg';
-import heroPhoto1 from '../assets/photos/hero1.jpg';
-import heroPhoto2 from '../assets/photos/hero2.jpg';
-import heroPhoto3 from '../assets/photos/hero3.jpg';
-import heroPhoto4 from '../assets/photos/hero4.jpg';
-import messagePhoto1 from '../assets/photos/message1.jpg';
-import messagePhoto2 from '../assets/photos/message2.jpg';
-import marinePhoto1 from '../assets/photos/marine1.jpg';
-import marinePhoto2 from '../assets/photos/marine2.jpg';
-import marinePhoto3 from '../assets/photos/marine3.jpg';
-import upcyclePhoto1 from '../assets/photos/upcycle1.jpg';
-import upcyclePhoto2 from '../assets/photos/upcycle2.jpg';
-import upcyclePhoto3 from '../assets/photos/upcycle3.jpg';
-import creativePhoto1 from '../assets/photos/creative1.jpg';
-import creativePhoto2 from '../assets/photos/creative2.jpg';
-import creativePhoto3 from '../assets/photos/creative3.jpg';
-import webshopPhoto1 from '../assets/photos/webshop1.jpg';
-import webshopPhoto2 from '../assets/photos/webshop2.jpg';
-import webshopPhoto3 from '../assets/photos/webshop3.jpg';
+import Layout from '../../layouts/Layout.astro';
+import Slideshow from '../../components/Slideshow.astro';
+import PhotoRow from '../../components/PhotoRow.astro';
+import LogoPattern from '../../components/LogoPattern.astro';
+import staffSanga from '../../assets/photos/staff-sanga.jpg';
+import staffKyoka from '../../assets/photos/staff-kyoka.jpg';
+import heroPhoto1 from '../../assets/photos/hero1.jpg';
+import heroPhoto2 from '../../assets/photos/hero2.jpg';
+import heroPhoto3 from '../../assets/photos/hero3.jpg';
+import heroPhoto4 from '../../assets/photos/hero4.jpg';
+import messagePhoto1 from '../../assets/photos/message1.jpg';
+import messagePhoto2 from '../../assets/photos/message2.jpg';
+import marinePhoto1 from '../../assets/photos/marine1.jpg';
+import marinePhoto2 from '../../assets/photos/marine2.jpg';
+import marinePhoto3 from '../../assets/photos/marine3.jpg';
+import upcyclePhoto1 from '../../assets/photos/upcycle1.jpg';
+import upcyclePhoto2 from '../../assets/photos/upcycle2.jpg';
+import upcyclePhoto3 from '../../assets/photos/upcycle3.jpg';
+import creativePhoto1 from '../../assets/photos/creative1.jpg';
+import creativePhoto2 from '../../assets/photos/creative2.jpg';
+import creativePhoto3 from '../../assets/photos/creative3.jpg';
+import webshopPhoto1 from '../../assets/photos/webshop1.jpg';
+import webshopPhoto2 from '../../assets/photos/webshop2.jpg';
+import webshopPhoto3 from '../../assets/photos/webshop3.jpg';
 ---
-<Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
+<Layout
+  title="emeraldblue | Marine Service, Upcycling & Photo/Video in Mugi, Tokushima"
+  description="emeraldblue offers marine activities, upcycling workshops, and photo/video production in Mugi, Tokushima, Japan."
+  lang="en"
+  section=""
+>
   <section class="hero">
     <Slideshow
       images={[heroPhoto1, heroPhoto2, heroPhoto3, heroPhoto4]}
@@ -37,24 +42,24 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     />
     <div class="hero-overlay"></div>
     <h1>emeraldblue</h1>
-    <p>青でもない、緑でもない、この海で</p>
+    <p>Not blue, not green — this is our sea</p>
   </section>
 
   <LogoPattern />
 
   <section class="message">
-    <div class="section-label">ご挨拶</div>
+    <div class="section-label">Message</div>
     <div class="message-content">
-      <h2>青でもない、緑でもない、この海で</h2>
+      <h2>Not blue, not green — this is our sea</h2>
       <p>
-        四国の徳島県南部に位置する「牟岐町(むぎちょう)」、過疎化が進む小さな港町。<br />
-        山と海が出会い、色を失うことなく混ざり合う場所。<br />
-        私たちは、この「青でもない、緑でもない」唯一無二の「emeraldblue」の海で、<br />
-        心を揺さぶるマリンアクティビティを提供します。
+        Mugi is a small, quietly depopulating port town in southern Tokushima Prefecture, Shikoku.<br />
+        A place where mountains meet the sea, and their colors blend without ever losing themselves.<br />
+        In this one-of-a-kind sea — neither blue nor green, but "emeraldblue" —<br />
+        we offer marine activities that will move your heart.
       </p>
       <Slideshow
         images={[messagePhoto1, messagePhoto2]}
-        alt="牟岐町の港と山並み"
+        alt="The port and mountains of Mugi"
         intervalMs={6000}
         class="message-image"
         widths={[400, 800, 1200]}
@@ -64,67 +69,67 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   </section>
 
   <section class="services" id="services">
-    <div class="section-label">私たちのこと</div>
+    <div class="section-label">What We Do</div>
     <div class="cards">
-      <a href="/marine/" class="card">
+      <a href="/en/marine/" class="card">
         <PhotoRow
           images={[marinePhoto1, marinePhoto2, marinePhoto3]}
-          alt="シュノーケリング体験の様子"
+          alt="Snorkeling experience"
           class="card-image"
         />
-        <h3>マリンサービス</h3>
-        <p>牟岐町のemeraldblueの海をご案内するマリンサービスは、シュノーケリング体験などを通じて、美しい海の魅力を体感できるアクティビティを提供しています。海中では、サンゴ礁や多彩な魚たちを間近で観察でき、初心者から上級者まで安心して楽しめるガイド付きプランも充実。牟岐の自然を満喫したい方に最適な海の体験型サービスです。</p>
+        <h3>Marine Service</h3>
+        <p>Our marine service guides you through the beautiful sea of emeraldblue in Mugi, mainly through snorkeling experiences. Get up close with coral reefs and colorful fish, with guided plans that put beginners and experts alike at ease. The ideal way to enjoy the nature of Mugi to the fullest.</p>
         <span class="pill">view more</span>
       </a>
 
-      <a href="/upcycle/" class="card">
+      <a href="/en/upcycle/" class="card">
         <PhotoRow
           images={[upcyclePhoto1, upcyclePhoto2, upcyclePhoto3]}
-          alt="アップサイクル製品のアクセサリー"
+          alt="Upcycled accessory products"
           class="card-image"
         />
-        <h3>アップサイクル事業</h3>
-        <p>アップサイクル事業は、海に漂着したプラスチックや漁具などの廃棄物を回収し、新たな価値ある製品へと生まれ変わらせる取り組みです。アクセサリーや雑貨、アート作品などに加工することで、環境問題への意識を高めながら、持続可能なモノづくりを実現しています。</p>
+        <h3>Upcycling</h3>
+        <p>Our upcycling project collects plastic and fishing gear that has washed up on the coast and turns it into new, valuable products. By crafting it into accessories, goods, and art, we raise awareness of environmental issues while building a sustainable way of making things.</p>
         <span class="pill">view more</span>
       </a>
 
-      <a href="/guesthouse/" class="card">
+      <a href="/en/guesthouse/" class="card">
         <div class="card-image" style="background:#B9C7D0;"></div>
-        <h3>ゲストハウス</h3>
+        <h3>Guesthouse</h3>
         <p>coming soon</p>
         <span class="pill">coming soon</span>
       </a>
 
-      <a href="/creative/" class="card">
+      <a href="/en/creative/" class="card">
         <PhotoRow
           images={[creativePhoto1, creativePhoto2, creativePhoto3]}
-          alt="撮影・映像制作の作例"
+          alt="Photo and video production samples"
           class="card-image"
         />
-        <h3>写真・映像撮影/動画制作/広告</h3>
-        <p>あなたの見ている景色を残します。写真撮影・空撮・動画編集・バナー制作・web制作・広告運用など、幅広くご依頼承ります。</p>
+        <h3>Photo / Video / Advertising</h3>
+        <p>We capture the scenery you see. Photography, aerial shots, video editing, banner design, web production, and ad management — we handle a wide range of requests.</p>
         <span class="pill">view more</span>
       </a>
 
       <a href="https://emeraldblue.base.shop/" class="card" target="_blank" rel="noopener">
         <PhotoRow
           images={[webshopPhoto1, webshopPhoto2, webshopPhoto3]}
-          alt="emeraldblue公式グッズ"
+          alt="emeraldblue official merchandise"
           class="card-image"
         />
         <h3>Web Shop</h3>
-        <p>emeraldblue公式グッズ販売中。</p>
+        <p>emeraldblue official merchandise, now on sale.</p>
         <span class="pill">view more</span>
       </a>
     </div>
   </section>
 
   <section class="blog-links">
-    <div class="section-label">ブログ・SNS</div>
+    <div class="section-label">Blog & SNS</div>
     <div class="blog-links-content">
       <div class="blog-feature">
         <h3>Blog</h3>
-        <p>emeraldblueの日々の活動を、このサイトでも綴っていく予定です。</p>
+        <p>We plan to share emeraldblue's day-to-day activities here on the site as well.</p>
         <span class="pill">coming soon</span>
       </div>
       <div class="sns-row">
@@ -135,7 +140,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
             </svg>
           </span>
           <h4>note</h4>
-          <p>牟岐町での活動や想いを綴っています</p>
+          <p>Stories about our activities and thoughts here in Mugi</p>
           <span class="pill">view more</span>
         </a>
 
@@ -148,7 +153,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
             </svg>
           </span>
           <h4>Instagram</h4>
-          <p>写真や動画で日常の海をお届けします</p>
+          <p>Photos and videos of everyday life by the sea</p>
           <span class="pill">view more</span>
         </a>
 
@@ -159,8 +164,8 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
               <path d="M4 10l3.5 7L10 9l2.5 8L16 9M15 10h5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </span>
-          <h4>海の世界</h4>
-          <p>牟岐の海中を記録したダイビングブログ</p>
+          <h4>Underwater World</h4>
+          <p>A diving blog recording the sea beneath Mugi</p>
           <span class="pill">view more</span>
         </a>
       </div>
@@ -168,29 +173,29 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   </section>
 
   <section class="staff">
-    <div class="section-label">スタッフ</div>
+    <div class="section-label">Staff</div>
     <div class="staff-grid">
       <div class="staff-member">
-        <Image src={staffSanga} alt="山河" class="staff-photo" widths={[200, 400]} sizes="180px" />
-        <h3>山河 <span>sanga</span></h3>
+        <Image src={staffSanga} alt="Sanga" class="staff-photo" widths={[200, 400]} sizes="180px" />
+        <h3>Sanga <span>sanga</span></h3>
         <p>
-          青と緑が溶け合うような海の色に惚れ込み、東京から徳島県の田舎町「牟岐町」へ移住。
-          釣り・波乗り中毒。見ている景色を残したく、撮影・編集に力を入れる。前職広告代理店で培った知識を活かして幅広くSNSを展開。空撮・ショート動画制作を得意としてます。
+          Fell in love with a sea where blue and green blend together, and moved from Tokyo to the rural town of Mugi, Tokushima.
+          A fishing and surfing addict. Wanting to preserve the scenery he sees, he focuses on photography and editing, drawing on his background at an ad agency to run a wide range of SNS accounts. Specializes in aerial photography and short-form video.
         </p>
       </div>
       <div class="staff-member">
-        <Image src={staffKyoka} alt="京華" class="staff-photo staff-photo-kyoka" widths={[200, 400]} sizes="180px" />
-        <h3>京華 <span>kyoka</span></h3>
+        <Image src={staffKyoka} alt="Kyoka" class="staff-photo staff-photo-kyoka" widths={[200, 400]} sizes="180px" />
+        <h3>Kyoka <span>kyoka</span></h3>
         <p>
-          海が大好き。趣味ではじめたダイビングで、海の世界に心奪われ、ダイビングインストラクターへ。
-          「地元の徳島県にもこんな豊かな海があるんだ!」と牟岐町の海に惹かれ、移住。
+          Loves the sea. Took up diving as a hobby and was captivated by the underwater world, going on to become a diving instructor.
+          Drawn in by the thought that "Tokushima, my own home prefecture, has a sea this rich," she moved to Mugi.
         </p>
       </div>
     </div>
   </section>
 
   <section class="calendar">
-    <div class="section-label">イベントスケジュール</div>
+    <div class="section-label">Event Schedule</div>
     <div class="calendar-embed">
       <iframe
         src="https://calendar.google.com/calendar/embed?src=emerald.blue.mugi%40gmail.com&ctz=Asia%2FTokyo"
@@ -203,35 +208,35 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   </section>
 
   <section class="contact" id="contact">
-    <div class="section-label">お問い合わせ</div>
+    <div class="section-label">Contact</div>
     <div class="contact-content">
-      <p class="contact-lead">弊社へのお問い合わせはこちらよりお願い致します。2営業日以内にご返信させて頂きます。</p>
+      <p class="contact-lead">Please use the form below to get in touch. We'll reply within 2 business days.</p>
       <form class="contact-form">
         <label>
-          <span class="label-text">お名前 <span class="required">必須</span></span>
+          <span class="label-text">Name <span class="required">Required</span></span>
           <input type="text" name="name" required />
         </label>
         <label>
-          <span class="label-text">会社名</span>
+          <span class="label-text">Company</span>
           <input type="text" name="company" />
         </label>
         <label>
-          <span class="label-text">メールアドレス <span class="required">必須</span></span>
+          <span class="label-text">Email <span class="required">Required</span></span>
           <input type="email" name="email" required />
         </label>
         <label>
-          <span class="label-text">電話番号</span>
+          <span class="label-text">Phone</span>
           <input type="tel" name="phone" />
         </label>
         <label class="contact-message">
-          <span class="label-text">お問い合わせ内容 <span class="required">必須</span></span>
+          <span class="label-text">Message <span class="required">Required</span></span>
           <textarea name="message" rows="6" required></textarea>
         </label>
         <label class="contact-agree">
           <input type="checkbox" name="agree" required />
-          <a href="/privacy-policy/">プライバシーポリシー</a>に同意する
+          I agree to the <a href="/en/privacy-policy/">Privacy Policy</a>
         </label>
-        <button type="submit">送信</button>
+        <button type="submit">Send</button>
       </form>
     </div>
   </section>
