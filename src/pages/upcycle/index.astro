@@ -2,9 +2,19 @@
 import Layout from '../../layouts/Layout.astro';
 import Slideshow from '../../components/Slideshow.astro';
 import LogoPattern from '../../components/LogoPattern.astro';
+import PhotoScatter from '../../components/PhotoScatter.astro';
 import upcyclePhoto1 from '../../assets/photos/upcycle1.jpg';
 import upcyclePhoto2 from '../../assets/photos/upcycle2.jpg';
 import upcyclePhoto3 from '../../assets/photos/upcycle3.jpg';
+import galleryPhoto1 from '../../assets/photos/upcycle-gallery1.jpg';
+import galleryPhoto2 from '../../assets/photos/upcycle-gallery2.jpg';
+import galleryPhoto3 from '../../assets/photos/upcycle-gallery3.jpg';
+import galleryPhoto4 from '../../assets/photos/upcycle-gallery4.jpg';
+import galleryPhoto5 from '../../assets/photos/upcycle-gallery5.jpg';
+import galleryPhoto6 from '../../assets/photos/upcycle-gallery6.jpg';
+import galleryPhoto7 from '../../assets/photos/upcycle-gallery7.jpg';
+import galleryPhoto8 from '../../assets/photos/upcycle-gallery8.jpg';
+import galleryPhoto9 from '../../assets/photos/upcycle-gallery9.jpg';
 ---
 <Layout
   title="アップサイクル事業 | emeraldblue"
@@ -47,6 +57,11 @@ import upcyclePhoto3 from '../../assets/photos/upcycle3.jpg';
       </p>
     </div>
   </section>
+
+  <PhotoScatter
+    images={[galleryPhoto1, galleryPhoto2, galleryPhoto3, galleryPhoto4, galleryPhoto5, galleryPhoto6, galleryPhoto7, galleryPhoto8, galleryPhoto9]}
+    alt="アップサイクル体験ワークショップの様子"
+  />
 
   <section class="content">
     <div class="section-label">料金・内容</div>
