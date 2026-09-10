@@ -4,17 +4,30 @@ interface Props {
   description?: string;
   lang?: 'ja' | 'en';
   section?: '' | 'marine' | 'upcycle' | 'creative';
+  type?: 'website' | 'article';
+  image?: string;
+  articleMeta?: {
+    publishedTime: string;
+    modifiedTime?: string;
+    author?: string;
+  };
 }
 const {
   title,
   description = "徳島県牟岐町emeraldblue。マリンサービス・アップサイクル・撮影/映像制作を行っています。",
   lang = 'ja',
   section = '',
+  type = 'website',
+  image = '/og-image.jpg',
+  articleMeta,
 } = Astro.props;
 
 const jaHref = section === '' ? '/' : `/${section}/`;
 const enHref = section === '' ? '/en/' : `/en/${section}/`;
 const home = lang === 'en' ? '/en/' : '/';
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const absoluteImageURL = new URL(image, Astro.site);
 
 const navJa = [
   { href: '/#services', label: '私たちのこと' },
@@ -42,9 +55,26 @@ const nav = lang === 'en' ? navEn : navJa;
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="emeraldblue" />
+  <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'ja_JP'} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={absoluteImageURL} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={absoluteImageURL} />
+  {articleMeta && <meta property="article:published_time" content={articleMeta.publishedTime} />}
+  {articleMeta?.modifiedTime && <meta property="article:modified_time" content={articleMeta.modifiedTime} />}
+  {articleMeta?.author && <meta property="article:author" content={articleMeta.author} />}
+
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -63,6 +93,25 @@ const nav = lang === 'en' ? navEn : navJa;
       "https://note.com/emerald_bluemugi"
     ]
   })} />
+  {articleMeta && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": title,
+      "description": description,
+      "image": absoluteImageURL.toString(),
+      "datePublished": articleMeta.publishedTime,
+      "dateModified": articleMeta.modifiedTime ?? articleMeta.publishedTime,
+      "url": canonicalURL.toString(),
+      "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalURL.toString() },
+      "author": { "@type": "Person", "name": articleMeta.author ?? "emeraldblue" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "emeraldblue",
+        "logo": { "@type": "ImageObject", "url": new URL('/favicon.svg', Astro.site).toString() }
+      }
+    })} />
+  )}
 </head>
 <body>
   <header class="site-header">

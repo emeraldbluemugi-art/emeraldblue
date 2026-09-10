@@ -21,6 +21,11 @@ function formatDate(date: Date) {
   title={`${post.data.title} | emeraldblue Blog`}
   description={post.data.description ?? post.data.title}
   section=""
+  type="article"
+  articleMeta={{
+    publishedTime: post.data.pubDate.toISOString(),
+    author: post.data.author,
+  }}
 >
   <article class="post">
     <div class="post-header">
