@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: emeraldbluemugi-art/emeraldblue
+  branch: main
+
+media_folder: "/public/images/blog"
+public_folder: "/images/blog"
+
+collections:
+  - name: blog
+    label: "ブログ"
+    label_singular: "記事"
+    folder: "/src/content/blog"
+    create: true
+    slug: "{{fields.slug}}"
+    fields:
+      - label: "URLスラッグ(半角英数字とハイフンのみ)"
+        name: slug
+        widget: string
+        meta: true
+        hint: "ファイル名とURLになります。例: my-new-post(日本語は使えません)"
+      - { label: "タイトル", name: title, widget: string }
+      - { label: "説明文(検索結果やSNSシェア時に表示されます)", name: description, widget: text, required: false }
+      - { label: "公開日", name: pubDate, widget: datetime }
+      - { label: "著者", name: author, widget: string, required: false, hint: "例: 山河 / 京華" }
+      - label: "ジャンル"
+        name: tags
+        widget: select
+        multiple: true
+        required: false
+        options: ["ダイビング", "アップサイクル", "水中写真"]
+      - label: "本文"
+        name: body
+        widget: markdown
