@@ -1,0 +1,104 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+<Layout
+  title={`${post.data.title} | emeraldblue Blog`}
+  description={post.data.description ?? post.data.title}
+  section=""
+>
+  <article class="post">
+    <div class="post-header">
+      <a href="/blog/" class="back-link">&larr; ブログ一覧へ</a>
+      <time datetime={post.data.pubDate.toISOString()}>
+        {formatDate(post.data.pubDate)}{post.data.author && ` ・ ${post.data.author}`}
+      </time>
+      <h1>{post.data.title}</h1>
+      {post.data.tags && post.data.tags.length > 0 && (
+        <div class="tags">
+          {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+    </div>
+    <div class="post-body">
+      <Content />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .post {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 64px;
+  }
+  .post-header {
+    margin-bottom: 32px;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--color-teal);
+    text-decoration: none;
+  }
+  .post-header time {
+    display: block;
+    font-size: 12px;
+    color: #9A9488;
+    margin-bottom: 8px;
+  }
+  .post-header h1 {
+    font-size: 28px;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .tags {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 2px 10px;
+    border: 1px solid var(--color-teal);
+    color: var(--color-teal);
+    border-radius: 999px;
+  }
+  .post-body {
+    font-size: 15px;
+    line-height: 2;
+    color: #33423E;
+  }
+  .post-body :global(h2) {
+    font-size: 20px;
+    margin: 40px 0 16px;
+  }
+  .post-body :global(p) {
+    margin: 0 0 20px;
+  }
+  .post-body :global(img) {
+    width: 100%;
+    border-radius: 12px;
+    margin: 24px 0;
+  }
+  .post-body :global(a) {
+    color: var(--color-teal);
+  }
+</style>

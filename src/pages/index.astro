@@ -122,11 +122,11 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   <section class="blog-links">
     <div class="section-label">ブログ・SNS</div>
     <div class="blog-links-content">
-      <div class="blog-feature">
+      <a href="/blog/" class="blog-feature">
         <h3>Blog</h3>
-        <p>emeraldblueの日々の活動を、このサイトでも綴っていく予定です。</p>
-        <span class="pill">coming soon</span>
-      </div>
+        <p>emeraldblueの日々の活動を綴っています。</p>
+        <span class="pill">view more</span>
+      </a>
       <div class="sns-row">
         <a href="https://note.com/emerald_bluemugi" class="sns-card sns-note" target="_blank" rel="noopener">
           <span class="sns-badge" aria-hidden="true">
@@ -377,10 +377,17 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     gap: 24px;
   }
   .blog-feature {
+    display: block;
+    text-decoration: none;
     background: linear-gradient(135deg, var(--color-teal), #0E8E8B);
     color: white;
     border-radius: 16px;
     padding: 32px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .blog-feature:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   }
   .blog-feature h3 {
     margin: 0 0 8px;
