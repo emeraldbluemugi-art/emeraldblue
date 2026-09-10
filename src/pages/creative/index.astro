@@ -70,16 +70,16 @@ const instagramReels = [
   <section class="content">
     <div class="section-label">写真</div>
     <div class="content-body">
-      <ul class="awards">
-        <li><strong>四国フォトコンテスト2025</strong> : 最優秀賞</li>
-        <li><strong>美波町フォトコンテスト2025</strong> : 特別賞</li>
-        <li><strong>徳島県消防団魅力コンテスト2023</strong> : 優秀賞</li>
-      </ul>
       <div class="photo-grid">
         {awardPhotos.map((photo) => (
           <Image src={photo} alt="受賞・撮影実績の写真" widths={[200, 400]} sizes="180px" loading="lazy" class="grid-photo" />
         ))}
       </div>
+      <ul class="awards">
+        <li>四国フォトコンテスト2025 : 最優秀賞</li>
+        <li>美波町フォトコンテスト2025 : 特別賞</li>
+        <li>徳島県消防団魅力コンテスト2023 : 優秀賞</li>
+      </ul>
     </div>
   </section>
 
@@ -183,11 +183,11 @@ const instagramReels = [
   }
 
   .awards {
-    margin: 0 0 24px;
-    padding: 0 0 0 20px;
-    font-size: 14px;
-    line-height: 2;
-    color: #33423E;
+    margin: 12px 0 0;
+    padding: 0 0 0 16px;
+    font-size: 11px;
+    line-height: 1.8;
+    color: #9A9488;
   }
 
   .photo-grid {
