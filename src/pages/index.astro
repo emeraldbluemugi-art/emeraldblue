@@ -91,7 +91,7 @@ import guesthouseDream from '../assets/photos/guesthouse-dream.jpg';
 
       <div class="card card-dream">
         <div class="card-image">
-          <Image src={guesthouseDream} alt="いつか作りたいゲストハウスのイメージ" width={400} height={280} />
+          <Image src={guesthouseDream} alt="いつか作りたいゲストハウスのイメージ" width={670} height={770} />
         </div>
         <h3>ゲストハウス</h3>
         <p>牟岐の海を眺めながらのんびり泊まれる場所を、いつか作れたら…そんな夢をあたためています。</p>
@@ -369,14 +369,15 @@ import guesthouseDream from '../assets/photos/guesthouse-dream.jpg';
     cursor: default;
   }
   .card-dream .card-image {
+    height: 220px;
     background: #EAF7F6;
   }
   .card-dream .card-image :global(img) {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
+    object-fit: contain;
+    object-position: center;
   }
   .pill-dream {
     border-style: dashed;
