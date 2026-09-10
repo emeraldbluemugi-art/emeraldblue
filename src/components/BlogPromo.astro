@@ -1,0 +1,50 @@
+---
+interface Props {
+  genre: string;
+  title?: string;
+  description: string;
+}
+
+const { genre, title = 'Blog', description } = Astro.props;
+---
+
+<a href={`/blog/?genre=${encodeURIComponent(genre)}`} class="blog-promo">
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <span class="pill">view more</span>
+</a>
+
+<style>
+  .blog-promo {
+    display: block;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--color-teal), #0E8E8B);
+    color: white;
+    border-radius: 16px;
+    padding: 32px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .blog-promo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
+  .blog-promo h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-family: var(--font-display);
+  }
+  .blog-promo p {
+    margin: 0 0 16px !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    color: white !important;
+    opacity: 0.95;
+  }
+  .blog-promo .pill {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 14px;
+    border: 1px solid white;
+    border-radius: 999px;
+  }
+</style>

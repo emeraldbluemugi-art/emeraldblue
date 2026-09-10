@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Slideshow from '../../components/Slideshow.astro';
 import LogoPattern from '../../components/LogoPattern.astro';
+import BlogPromo from '../../components/BlogPromo.astro';
 import marineservice1 from '../../assets/photos/marineservice1.jpg';
 import marineservice2 from '../../assets/photos/marineservice2.jpg';
 import marineservice3 from '../../assets/photos/marineservice3.jpg';
@@ -76,11 +77,11 @@ import marineservice5 from '../../assets/photos/marineservice5.jpg';
         この牟岐の海で少しずつ形にしていきたいと思っています。<br />
         それまで見守っていてほしいです。
       </p>
-      <div class="blog-feature">
-        <h3>ダイビングができるまでの記録</h3>
-        <p>タンク潜水の実現に向けた、emeraldblueの取り組みや歩みをここに綴っていく予定です。</p>
-        <span class="pill">coming soon</span>
-      </div>
+      <BlogPromo
+        genre="ダイビング"
+        title="ダイビングができるまでの記録"
+        description="タンク潜水の実現に向けた、emeraldblueの取り組みや歩みをブログで綴っています。"
+      />
     </div>
   </section>
 
@@ -209,32 +210,6 @@ import marineservice5 from '../../assets/photos/marineservice5.jpg';
     font-size: 12px !important;
     color: #4A5A56 !important;
     text-align: center;
-  }
-
-  .blog-feature {
-    background: linear-gradient(135deg, var(--color-teal), #0E8E8B);
-    color: white;
-    border-radius: 16px;
-    padding: 32px;
-  }
-  .blog-feature h3 {
-    margin: 0 0 8px;
-    font-size: 20px;
-    font-family: var(--font-display);
-  }
-  .blog-feature p {
-    margin: 0 0 16px !important;
-    font-size: 14px !important;
-    line-height: 1.7 !important;
-    color: white !important;
-    opacity: 0.95;
-  }
-  .blog-feature .pill {
-    display: inline-block;
-    font-size: 12px;
-    padding: 4px 14px;
-    border: 1px solid white;
-    border-radius: 999px;
   }
 
   .price-card {

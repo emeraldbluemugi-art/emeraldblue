@@ -5,6 +5,7 @@ import Slideshow from '../../components/Slideshow.astro';
 import LogoPattern from '../../components/LogoPattern.astro';
 import VideoCarousel from '../../components/VideoCarousel.astro';
 import InstagramCarousel from '../../components/InstagramCarousel.astro';
+import BlogPromo from '../../components/BlogPromo.astro';
 import staffSanga from '../../assets/photos/staff-sanga.jpg';
 import creativePhoto1 from '../../assets/photos/creative1.jpg';
 import creativePhoto2 from '../../assets/photos/creative2.jpg';
@@ -86,6 +87,13 @@ const instagramReels = [
         <li>美波町フォトコンテスト2025 : 特別賞</li>
         <li>徳島県消防団魅力コンテスト2023 : 優秀賞</li>
       </ul>
+      <div class="blog-promo-wrap">
+        <BlogPromo
+          genre="水中写真"
+          title="水中写真の記録"
+          description="機材のことや撮影の裏側など、水中写真にまつわる話をブログで綴っています。"
+        />
+      </div>
     </div>
   </section>
 
@@ -247,6 +255,9 @@ const instagramReels = [
     font-size: 11px;
     line-height: 1.8;
     color: #9A9488;
+  }
+  .blog-promo-wrap {
+    margin-top: 24px;
   }
 
   .photo-grid {

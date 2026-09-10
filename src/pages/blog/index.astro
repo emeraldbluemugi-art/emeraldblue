@@ -55,17 +55,24 @@ function formatDate(date: Date) {
       <script>
         const buttons = document.querySelectorAll<HTMLButtonElement>('.genre-btn');
         const cards = document.querySelectorAll<HTMLElement>('.post-card');
-        buttons.forEach((btn) => {
-          btn.addEventListener('click', () => {
-            buttons.forEach((b) => b.classList.remove('is-active'));
-            btn.classList.add('is-active');
-            const genre = btn.dataset.genre;
-            cards.forEach((card) => {
-              const tags = (card.dataset.tags ?? '').split(' ');
-              card.hidden = genre !== 'all' && !tags.includes(genre ?? '');
-            });
+
+        function applyGenre(genre: string) {
+          buttons.forEach((b) => b.classList.toggle('is-active', b.dataset.genre === genre));
+          cards.forEach((card) => {
+            const tags = (card.dataset.tags ?? '').split(' ');
+            card.hidden = genre !== 'all' && !tags.includes(genre);
           });
+        }
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', () => applyGenre(btn.dataset.genre ?? 'all'));
         });
+
+        const requestedGenre = new URLSearchParams(location.search).get('genre');
+        const validGenres = Array.from(buttons).map((b) => b.dataset.genre);
+        if (requestedGenre && validGenres.includes(requestedGenre)) {
+          applyGenre(requestedGenre);
+        }
       </script>
     </div>
   </section>
