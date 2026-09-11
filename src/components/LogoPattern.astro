@@ -3,6 +3,12 @@ import { Image } from 'astro:assets';
 import logo1 from '../assets/logos/logo1.png';
 import logo2 from '../assets/logos/logo2.png';
 
+interface Props {
+  animated?: boolean;
+}
+
+const { animated = false } = Astro.props;
+
 const tiles = [
   { x: 4, y: 15, r: -14, s: 0.85, logo: 2 },
   { x: 13, y: 62, r: 12, s: 0.6, logo: 1 },
@@ -24,9 +30,14 @@ const tiles = [
   { x: -1, y: 40, r: 4, s: 0.55, logo: 2 },
   { x: 100, y: 50, r: -6, s: 0.55, logo: 1 },
 ];
+
+function delayFor(x: number, y: number) {
+  const dist = Math.hypot(x - 50, y - 50);
+  return Math.round(dist * 6);
+}
 ---
 
-<div class="logo-pattern">
+<div class={`logo-pattern ${animated ? 'is-animated' : ''}`}>
   {tiles.map((t) => (
     <Image
       src={t.logo === 1 ? logo1 : logo2}
@@ -35,7 +46,7 @@ const tiles = [
       widths={[80, 160]}
       sizes="70px"
       loading="lazy"
-      style={`--x:${t.x}%; --y:${t.y}%; --r:${t.r}deg; --s:${t.s};`}
+      style={`--x:${t.x}%; --y:${t.y}%; --r:${t.r}deg; --s:${t.s}; --delay:${delayFor(t.x, t.y)}ms;`}
     />
   ))}
 </div>
@@ -56,6 +67,25 @@ const tiles = [
     opacity: 0.92;
   }
 
+  .logo-pattern.is-animated .logo-tile {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0);
+    opacity: 0;
+    transition:
+      top 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+      left 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+      transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 0.5s ease;
+    transition-delay: var(--delay);
+  }
+  .logo-pattern.is-animated.is-revealed .logo-tile {
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%) rotate(var(--r)) scale(1);
+    opacity: 0.92;
+  }
+
   @media (max-width: 640px) {
     .logo-pattern {
       height: 160px;
@@ -65,3 +95,25 @@ const tiles = [
     }
   }
 </style>
+
+<script>
+  function initAnimatedLogoPatterns() {
+    const patterns = document.querySelectorAll<HTMLElement>('.logo-pattern.is-animated:not(.is-revealed)');
+    if (patterns.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    patterns.forEach((el) => observer.observe(el));
+  }
+  initAnimatedLogoPatterns();
+</script>
