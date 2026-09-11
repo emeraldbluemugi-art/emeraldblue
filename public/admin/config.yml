@@ -8,6 +8,17 @@ backend:
 media_folder: "/public/images/blog"
 public_folder: "/images/blog"
 
+media_libraries:
+  default:
+    config:
+      max_file_size: 20000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1920
+          height: 1920
+
 collections:
   - name: blog
     label: "ブログ"
