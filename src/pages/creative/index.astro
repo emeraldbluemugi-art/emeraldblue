@@ -110,6 +110,15 @@ const instagramReels = [
     <div class="section-label">動画制作</div>
     <div class="content-body">
       <h3>横型動画 撮影編集</h3>
+      <a href="https://www.youtube.com/watch?v=cxYOMZrM4vE" target="_blank" rel="noopener" class="featured-video">
+        <div class="featured-thumb-wrap">
+          <img src="https://img.youtube.com/vi/cxYOMZrM4vE/hqdefault.jpg" alt="【徳島県南部】みなみ阿波の風景" loading="lazy" width="480" height="270" />
+          <span class="play-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </div>
+        <p>【徳島県南部】みなみ阿波の風景</p>
+      </a>
       <VideoCarousel videos={seriesVideos} />
 
       <h3>その他</h3>
@@ -247,6 +256,43 @@ const instagramReels = [
   }
   .content-body h3:first-child {
     margin-top: 0;
+  }
+
+  .featured-video {
+    display: block;
+    max-width: 420px;
+    margin: 0 0 20px;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .featured-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    background: #eee;
+  }
+  .featured-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .featured-thumb-wrap .play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.25);
+  }
+  .featured-video p {
+    margin: 10px 0 0;
+    font-size: 13px;
+    color: #4A5A56;
+    line-height: 1.6;
   }
 
   .awards {
