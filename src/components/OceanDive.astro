@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  images: ImageMetadata[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="dive-zone" id="dive-zone">
+  <div class="dive-bg">
+    {images.map((img, i) => (
+      <Image
+        src={img}
+        alt=""
+        class="dive-layer"
+        data-index={i}
+        widths={[800, 1600, 2400]}
+        sizes="100vw"
+        loading={i === 0 ? 'eager' : 'lazy'}
+      />
+    ))}
+    <div class="dive-shade" id="dive-shade"></div>
+  </div>
+  <div class="dive-foreground">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .dive-zone {
+    position: relative;
+    display: grid;
+  }
+  .dive-bg {
+    grid-area: 1 / 1;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .dive-bg :global(.dive-layer) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+  }
+  .dive-bg :global(.dive-layer[data-index="0"]) {
+    opacity: 1;
+  }
+  .dive-shade {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 30, 26, 0.3);
+  }
+  .dive-foreground {
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 1;
+  }
+</style>
+
+<script>
+  function initOceanDive() {
+    const zone = document.getElementById('dive-zone');
+    const shade = document.getElementById('dive-shade');
+    const layers = zone?.querySelectorAll<HTMLElement>('.dive-layer');
+    if (!zone || !shade || !layers || layers.length === 0) return;
+
+    const segment = layers.length > 1 ? 1 / (layers.length - 1) : 1;
+    let ticking = false;
+
+    function update() {
+      const rect = zone!.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 0));
+      const progress = total > 0 ? scrolled / total : 0;
+
+      layers!.forEach((layer, i) => {
+        const layerPos = i * segment;
+        const dist = Math.abs(progress - layerPos);
+        const opacity = Math.max(0, 1 - dist / segment);
+        layer.style.opacity = String(opacity);
+      });
+
+      shade!.style.background = `rgba(2, 30, 26, ${0.28 + progress * 0.5})`;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  }
+  initOceanDive();
+</script>

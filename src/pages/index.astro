@@ -3,7 +3,10 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Slideshow from '../components/Slideshow.astro';
 import PhotoRow from '../components/PhotoRow.astro';
-import BubbleDive from '../components/BubbleDive.astro';
+import OceanDive from '../components/OceanDive.astro';
+import bubbles1 from '../assets/photos/bubbles-dsc01509.jpg';
+import bubbles2 from '../assets/photos/bubbles-dsc01510.jpg';
+import bubbles3 from '../assets/photos/bubbles-dsc01607.jpg';
 import staffSanga from '../assets/photos/staff-sanga.jpg';
 import staffKyoka from '../assets/photos/staff-kyoka.jpg';
 import heroPhoto1 from '../assets/photos/hero1.jpg';
@@ -26,42 +29,33 @@ import webshopPhoto2 from '../assets/photos/webshop2.jpg';
 import webshopPhoto3 from '../assets/photos/webshop3.jpg';
 ---
 <Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
-  <section class="hero">
-    <Slideshow
-      images={[heroPhoto1, heroPhoto2, heroPhoto3, heroPhoto4]}
-      alt=""
-      intervalMs={4000}
-      class="hero-slideshow"
-      widths={[800, 1600, 2400]}
-      sizes="100vw"
-    />
-    <div class="hero-overlay"></div>
-    <h1>emeraldblue</h1>
-    <p>青でもない、緑でもない、この海で</p>
-  </section>
+  <OceanDive images={[heroPhoto1, heroPhoto2, heroPhoto3, heroPhoto4, bubbles2, bubbles1, bubbles3]}>
+    <section class="hero-content">
+      <h1>emeraldblue</h1>
+      <p>青でもない、緑でもない、この海で</p>
+    </section>
 
-  <BubbleDive />
-
-  <section class="message">
-    <div class="section-label">ご挨拶</div>
-    <div class="message-content">
-      <h2>青でもない、緑でもない、この海で</h2>
-      <p>
-        四国の徳島県南部に位置する「牟岐町(むぎちょう)」、過疎化が進む小さな港町。<br />
-        山と海が出会い、色を失うことなく混ざり合う場所。<br />
-        私たちは、この「青でもない、緑でもない」唯一無二の「emeraldblue」の海で、<br />
-        心を揺さぶるマリンアクティビティを提供します。
-      </p>
-      <Slideshow
-        images={[messagePhoto1, messagePhoto2]}
-        alt="牟岐町の港と山並み"
-        intervalMs={6000}
-        class="message-image"
-        widths={[400, 800, 1200]}
-        sizes="(max-width: 640px) 100vw, 500px"
-      />
-    </div>
-  </section>
+    <section class="message">
+      <div class="section-label">ご挨拶</div>
+      <div class="message-content">
+        <h2>青でもない、緑でもない、この海で</h2>
+        <p>
+          四国の徳島県南部に位置する「牟岐町(むぎちょう)」、過疎化が進む小さな港町。<br />
+          山と海が出会い、色を失うことなく混ざり合う場所。<br />
+          私たちは、この「青でもない、緑でもない」唯一無二の「emeraldblue」の海で、<br />
+          心を揺さぶるマリンアクティビティを提供します。
+        </p>
+        <Slideshow
+          images={[messagePhoto1, messagePhoto2]}
+          alt="牟岐町の港と山並み"
+          intervalMs={6000}
+          class="message-image"
+          widths={[400, 800, 1200]}
+          sizes="(max-width: 640px) 100vw, 500px"
+        />
+      </div>
+    </section>
+  </OceanDive>
 
   <section class="services" id="services">
     <div class="section-label">私たちのこと</div>
@@ -257,37 +251,22 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
 </Layout>
 
 <style>
-  .hero {
-    position: relative;
+  .hero-content {
     min-height: 75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
     color: white;
     text-align: center;
     padding: 24px;
   }
-  .hero :global(.hero-slideshow) {
-    position: absolute;
-    inset: 0;
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,40,40,0.35);
-  }
-  .hero h1, .hero p {
-    position: relative;
-    z-index: 1;
-  }
-  .hero h1 {
+  .hero-content h1 {
     font-family: var(--font-display);
     font-size: 48px;
     margin: 0;
   }
-  .hero p {
+  .hero-content p {
     margin-top: 12px;
     font-size: 16px;
   }
@@ -303,7 +282,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   .message {
     max-width: 900px;
     margin: 0 auto;
-    padding: 64px 24px;
+    padding: 96px 24px 140px;
     display: flex;
     gap: 32px;
   }
@@ -312,6 +291,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     margin: 0 0 16px;
     position: relative;
     padding-bottom: 14px;
+    color: white;
   }
   .message-content h2::after {
     content: '';
@@ -326,13 +306,15 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   .message-content p {
     font-size: 14px;
     line-height: 2;
-    color: #33423E;
+    color: rgba(255,255,255,0.9);
   }
   .message-content :global(.message-image) {
     margin-top: 24px;
     height: 260px;
     border-radius: 12px;
     overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   }
 
   .services {
