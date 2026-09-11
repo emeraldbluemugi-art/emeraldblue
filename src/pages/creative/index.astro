@@ -62,7 +62,7 @@ const instagramReels = [
     <Slideshow
       images={[creativePhoto1, creativePhoto2, creativePhoto3]}
       alt="撮影・映像制作の作例"
-      intervalMs={5000}
+      intervalMs={2000}
       class="page-hero-slideshow"
       widths={[800, 1600]}
       sizes="100vw"
@@ -207,6 +207,10 @@ const instagramReels = [
   .page-hero :global(.page-hero-slideshow) {
     position: absolute;
     inset: 0;
+    background: var(--color-ink);
+  }
+  .page-hero :global(.page-hero-slideshow .slide) {
+    object-fit: contain;
   }
   .page-hero-overlay {
     position: absolute;

@@ -18,7 +18,7 @@ import marineservice5 from '../../assets/photos/marineservice5.jpg';
     <Slideshow
       images={[marineservice1, marineservice2, marineservice3, marineservice4, marineservice5]}
       alt="マリンサービスの様子"
-      intervalMs={5000}
+      intervalMs={2000}
       class="page-hero-slideshow"
       widths={[800, 1600]}
       sizes="100vw"
@@ -136,6 +136,10 @@ import marineservice5 from '../../assets/photos/marineservice5.jpg';
   .page-hero :global(.page-hero-slideshow) {
     position: absolute;
     inset: 0;
+    background: var(--color-ink);
+  }
+  .page-hero :global(.page-hero-slideshow .slide) {
+    object-fit: contain;
   }
   .page-hero-overlay {
     position: absolute;

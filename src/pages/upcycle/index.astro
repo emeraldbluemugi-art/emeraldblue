@@ -26,7 +26,7 @@ import galleryPhoto9 from '../../assets/photos/upcycle-gallery9.jpg';
     <Slideshow
       images={[upcyclePhoto1, upcyclePhoto2, upcyclePhoto3]}
       alt="アップサイクル体験の様子"
-      intervalMs={5000}
+      intervalMs={2000}
       class="page-hero-slideshow"
       widths={[800, 1600]}
       sizes="100vw"
@@ -119,6 +119,10 @@ import galleryPhoto9 from '../../assets/photos/upcycle-gallery9.jpg';
   .page-hero :global(.page-hero-slideshow) {
     position: absolute;
     inset: 0;
+    background: var(--color-ink);
+  }
+  .page-hero :global(.page-hero-slideshow .slide) {
+    object-fit: contain;
   }
   .page-hero-overlay {
     position: absolute;
