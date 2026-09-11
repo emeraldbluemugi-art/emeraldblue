@@ -1,0 +1,118 @@
+---
+import Slideshow from './Slideshow.astro';
+import bubbles1 from '../assets/photos/bubbles-dsc01509.jpg';
+import bubbles2 from '../assets/photos/bubbles-dsc01510.jpg';
+import bubbles3 from '../assets/photos/bubbles-dsc01607.jpg';
+
+const bubbles = [
+  { x: 5, size: 14, duration: 8, delay: 0 },
+  { x: 12, size: 22, duration: 10, delay: 2 },
+  { x: 20, size: 10, duration: 7, delay: 4 },
+  { x: 28, size: 18, duration: 9, delay: 1 },
+  { x: 36, size: 28, duration: 11, delay: 3 },
+  { x: 44, size: 12, duration: 8, delay: 5 },
+  { x: 52, size: 20, duration: 9, delay: 0.5 },
+  { x: 60, size: 16, duration: 7, delay: 2.5 },
+  { x: 68, size: 24, duration: 10, delay: 4.5 },
+  { x: 76, size: 10, duration: 8, delay: 1.5 },
+  { x: 84, size: 18, duration: 9, delay: 3.5 },
+  { x: 91, size: 14, duration: 7, delay: 0 },
+  { x: 8, size: 8, duration: 6, delay: 5.5 },
+  { x: 47, size: 8, duration: 6, delay: 6 },
+  { x: 72, size: 8, duration: 6, delay: 2 },
+  { x: 96, size: 10, duration: 8, delay: 4 },
+];
+---
+
+<div class="bubble-dive" id="bubble-dive">
+  <div class="bubble-dive-bg">
+    <Slideshow
+      images={[bubbles1, bubbles2, bubbles3]}
+      alt="海の中の泡"
+      intervalMs={5000}
+      class="bubble-dive-slideshow"
+      widths={[800, 1600]}
+      sizes="100vw"
+    />
+  </div>
+  <div class="bubble-dive-overlay"></div>
+  <div class="bubble-layer">
+    {bubbles.map((b) => (
+      <span class="bubble" style={`--x:${b.x}%; --size:${b.size}px; --duration:${b.duration}s; --delay:${b.delay}s;`}></span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .bubble-dive {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+  }
+  .bubble-dive-bg {
+    position: absolute;
+    inset: -15% 0;
+    will-change: transform;
+  }
+  .bubble-dive-bg :global(.bubble-dive-slideshow) {
+    position: absolute;
+    inset: 0;
+  }
+  .bubble-dive-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(4,52,44,0.55), rgba(4,52,44,0.2) 40%, rgba(4,52,44,0.55));
+  }
+  .bubble-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .bubble {
+    position: absolute;
+    left: var(--x);
+    bottom: -40px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.15) 70%);
+    box-shadow: 0 0 6px rgba(255,255,255,0.4);
+    animation: bubble-rise var(--duration) ease-in infinite;
+    animation-delay: var(--delay);
+    opacity: 0;
+  }
+  @keyframes bubble-rise {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 0.9; }
+    80% { opacity: 0.7; }
+    100% { transform: translateY(-320px) translateX(10px); opacity: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .bubble-dive { height: 200px; }
+  }
+</style>
+
+<script>
+  function initBubbleDive() {
+    const el = document.getElementById('bubble-dive');
+    const bg = el?.querySelector<HTMLElement>('.bubble-dive-bg');
+    if (!el || !bg) return;
+
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const rect = el!.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const progress = (vh - rect.top) / (vh + rect.height) - 0.5;
+        bg!.style.transform = `translateY(${progress * 50}px)`;
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  initBubbleDive();
+</script>
