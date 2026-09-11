@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Slideshow from '../components/Slideshow.astro';
 import PhotoRow from '../components/PhotoRow.astro';
 import OceanDive from '../components/OceanDive.astro';
-import bubbles1 from '../assets/photos/bubbles-dsc01509.jpg';
+import LogoPattern from '../components/LogoPattern.astro';
 import bubbles2 from '../assets/photos/bubbles-dsc01510.jpg';
 import bubbles3 from '../assets/photos/bubbles-dsc01607.jpg';
 import staffSanga from '../assets/photos/staff-sanga.jpg';
@@ -29,7 +29,7 @@ import webshopPhoto2 from '../assets/photos/webshop2.jpg';
 import webshopPhoto3 from '../assets/photos/webshop3.jpg';
 ---
 <Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
-  <OceanDive images={[heroPhoto1, heroPhoto2, heroPhoto3, heroPhoto4, bubbles2, bubbles1, bubbles3]}>
+  <OceanDive images={[heroPhoto1, heroPhoto2, heroPhoto3, heroPhoto4, bubbles2, bubbles3]}>
     <section class="hero-content">
       <h1>emeraldblue</h1>
       <p>青でもない、緑でもない、この海で</p>
@@ -56,6 +56,8 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
       </div>
     </section>
   </OceanDive>
+
+  <LogoPattern />
 
   <section class="services" id="services">
     <div class="section-label">私たちのこと</div>
@@ -282,7 +284,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   .message {
     max-width: 900px;
     margin: 0 auto;
-    padding: 96px 24px 140px;
+    padding: 140px 24px 240px;
     display: flex;
     gap: 32px;
   }
