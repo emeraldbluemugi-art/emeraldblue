@@ -312,11 +312,13 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   }
   .message-content :global(.message-image) {
     margin-top: 24px;
-    height: 260px;
-    border-radius: 12px;
+    height: 300px;
     overflow: hidden;
-    border: 4px solid white;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    mask-image: radial-gradient(ellipse 80% 75% at center, black 45%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 75% at center, black 45%, transparent 100%);
+  }
+  .message-content :global(.message-image .slide) {
+    filter: saturate(0.85) brightness(0.92) contrast(1.05);
   }
 
   .services {
