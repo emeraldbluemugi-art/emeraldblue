@@ -121,17 +121,6 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
         <span class="pill">view more</span>
       </a>
       <div class="sns-row">
-        <a href="https://note.com/emerald_bluemugi" class="sns-card sns-note" target="_blank" rel="noopener">
-          <span class="sns-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-              <path d="M12 4l6 6-6 6-6-6 6-6z" fill="white" opacity="0.9" />
-            </svg>
-          </span>
-          <h4>note</h4>
-          <p>牟岐町での活動や想いを綴っています</p>
-          <span class="pill">view more</span>
-        </a>
-
         <a href="https://www.instagram.com/emeraldblue_mugi/" class="sns-card sns-instagram" target="_blank" rel="noopener">
           <span class="sns-badge" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="1.8">
@@ -142,18 +131,6 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
           </span>
           <h4>Instagram</h4>
           <p>写真や動画で日常の海をお届けします</p>
-          <span class="pill">view more</span>
-        </a>
-
-        <a href="https://sangaari.com/%e5%be%b3%e5%b3%b6%e7%9c%8c%e5%8d%97%e9%83%a8%e7%89%9f%e5%b2%90%e7%94%ba%e3%83%80%e3%82%a4%e3%83%93%e3%83%b3%e3%82%b0%e8%a8%98%e9%8c%b2/" class="sns-card sns-wordpress" target="_blank" rel="noopener">
-          <span class="sns-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="1.8">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M4 10l3.5 7L10 9l2.5 8L16 9M15 10h5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          <h4>海の世界</h4>
-          <p>牟岐の海中を記録したダイビングブログ</p>
           <span class="pill">view more</span>
         </a>
       </div>
@@ -170,6 +147,14 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
           青と緑が溶け合うような海の色に惚れ込み、東京から徳島県の田舎町「牟岐町」へ移住。
           釣り・波乗り中毒。見ている景色を残したく、撮影・編集に力を入れる。前職広告代理店で培った知識を活かして幅広くSNSを展開。空撮・ショート動画制作を得意としてます。
         </p>
+        <a href="https://www.instagram.com/sanga_emeraldblue/" class="staff-instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4.2" />
+            <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+          </svg>
+          Instagram
+        </a>
       </div>
       <div class="staff-member">
         <Image src={staffKyoka} alt="京華" class="staff-photo staff-photo-kyoka" widths={[200, 400]} sizes="180px" />
@@ -397,9 +382,11 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     color: white;
   }
   .sns-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: flex;
+  }
+  .sns-row .sns-card {
+    max-width: 320px;
+    width: 100%;
   }
   .sns-card {
     display: block;
@@ -425,11 +412,9 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     border-radius: 50%;
     margin-bottom: 14px;
   }
-  .sns-note .sns-badge { background: #3DBEAB; }
   .sns-instagram .sns-badge {
     background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
   }
-  .sns-wordpress .sns-badge { background: #21759B; }
   .sns-card h4 {
     margin: 0 0 6px;
     font-size: 16px;
@@ -486,6 +471,19 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     line-height: 1.8;
     color: #4A5A56;
     text-align: left;
+  }
+  .staff-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-teal);
+    text-decoration: none;
+  }
+  .staff-instagram:hover {
+    text-decoration: underline;
   }
 
   .calendar {
@@ -587,7 +585,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
   @media (max-width: 640px) {
     .message, .services, .blog-links, .staff, .calendar, .contact { flex-direction: column; }
     .section-label { writing-mode: horizontal-tb; }
-    .cards, .sns-row, .staff-grid { grid-template-columns: 1fr; }
+    .cards, .staff-grid { grid-template-columns: 1fr; }
     .calendar-embed iframe { height: 400px; }
   }
 </style>
