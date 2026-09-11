@@ -24,7 +24,6 @@ import creativePhoto3 from '../assets/photos/creative3.jpg';
 import webshopPhoto1 from '../assets/photos/webshop1.jpg';
 import webshopPhoto2 from '../assets/photos/webshop2.jpg';
 import webshopPhoto3 from '../assets/photos/webshop3.jpg';
-import guesthouseDream from '../assets/photos/guesthouse-dream.jpg';
 ---
 <Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
   <section class="hero">
@@ -88,15 +87,6 @@ import guesthouseDream from '../assets/photos/guesthouse-dream.jpg';
         <p>アップサイクル事業は、海に漂着したプラスチックや漁具などの廃棄物を回収し、新たな価値ある製品へと生まれ変わらせる取り組みです。アクセサリーや雑貨、アート作品などに加工することで、環境問題への意識を高めながら、持続可能なモノづくりを実現しています。</p>
         <span class="pill">view more</span>
       </a>
-
-      <div class="card card-dream">
-        <div class="card-image">
-          <Image src={guesthouseDream} alt="いつか作りたいゲストハウスのイメージ" width={670} height={770} />
-        </div>
-        <h3>ゲストハウス</h3>
-        <p>牟岐の海を眺めながらのんびり泊まれる場所を、いつか作れたら…そんな夢をあたためています。</p>
-        <span class="pill pill-dream">coming someday</span>
-      </div>
 
       <a href="/creative/" class="card">
         <PhotoRow
@@ -365,25 +355,6 @@ import guesthouseDream from '../assets/photos/guesthouse-dream.jpg';
     border: 1px solid var(--color-ink);
     border-radius: 999px;
   }
-  .card-dream {
-    cursor: default;
-  }
-  .card-dream .card-image {
-    height: 220px;
-    background: #EAF7F6;
-  }
-  .card-dream .card-image :global(img) {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-  }
-  .pill-dream {
-    border-style: dashed;
-    color: #4A5A56;
-  }
-
   .blog-links {
     max-width: 1100px;
     margin: 0 auto;
