@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LogoPattern from '../../components/LogoPattern.astro';
+---
+<Layout
+  title="プライバシーポリシー | emeraldblue"
+  description="emeraldblueの個人情報の取り扱いについて。"
+  section=""
+>
+  <section class="page-hero">
+    <h1>プライバシーポリシー</h1>
+  </section>
+
+  <LogoPattern />
+
+  <section class="content">
+    <div class="section-label">個人情報保護方針</div>
+    <div class="content-body">
+      <p>
+        emeraldblue(以下「当方」といいます)は、お客様からお預かりする個人情報の重要性を認識し、
+        以下の方針に基づき適切に取り扱います。
+      </p>
+
+      <h2>1. 取得する情報</h2>
+      <p>
+        お問い合わせフォームより、お名前・会社名・メールアドレス・電話番号・お問い合わせ内容をご入力いただきます。
+      </p>
+
+      <h2>2. 利用目的</h2>
+      <p>
+        お預かりした個人情報は、以下の目的にのみ利用いたします。
+      </p>
+      <ul>
+        <li>お問い合わせ・ご相談への回答、連絡のため</li>
+        <li>サービスに関するご案内のため</li>
+      </ul>
+
+      <h2>3. 第三者への提供</h2>
+      <p>
+        当方は、法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供することはありません。
+      </p>
+
+      <h2>4. 委託</h2>
+      <p>
+        お問い合わせフォームの送受信には外部サービス(Formspree)を利用しています。入力された情報は、
+        お問い合わせへの対応のためにのみ同サービスを経由して当方に送信され、目的外に利用されることはありません。
+      </p>
+
+      <h2>5. 個人情報の管理</h2>
+      <p>
+        当方は、お預かりした個人情報の紛失、破壊、改ざん及び漏えいなどを防止するため、必要かつ適切な安全対策を講じます。
+      </p>
+
+      <h2>6. 開示・訂正・削除等について</h2>
+      <p>
+        ご本人からご自身の個人情報について開示・訂正・削除等のご希望があった場合は、ご本人確認の上、
+        速やかに対応いたします。下記お問い合わせ先までご連絡ください。
+      </p>
+
+      <h2>7. お問い合わせ窓口</h2>
+      <p>
+        個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください。<br />
+        emeraldblue<br />
+        Email: emerald.blue.mugi@gmail.com
+      </p>
+
+      <h2>8. 改定</h2>
+      <p>
+        当方は、必要に応じて本ポリシーの内容を変更することがあります。変更後のプライバシーポリシーは、
+        本ページに掲載した時点から効力を生じるものとします。
+      </p>
+
+      <p class="updated">制定日: 2026年9月11日</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: 64px 24px 40px;
+    text-align: center;
+    color: var(--color-ink);
+  }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    margin: 0;
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+    display: flex;
+    gap: 32px;
+  }
+  .section-label {
+    writing-mode: vertical-rl;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+  .content-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .content-body p {
+    font-size: 14px;
+    line-height: 2;
+    color: #33423E;
+    margin: 0 0 20px;
+  }
+  .content-body h2 {
+    font-size: 16px;
+    margin: 32px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-teal);
+  }
+  .content-body ul {
+    margin: 0 0 20px;
+    padding-left: 20px;
+  }
+  .content-body li {
+    font-size: 14px;
+    line-height: 2;
+    color: #33423E;
+  }
+  .content-body .updated {
+    font-size: 12px;
+    color: #9A9488;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .content { flex-direction: column; }
+    .section-label { writing-mode: horizontal-tb; }
+  }
+</style>
