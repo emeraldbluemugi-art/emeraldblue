@@ -6,4 +6,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://emeraldblue.jp',
   integrations: [sitemap()],
+  redirects: {
+    '/1-1': '/upcycle/',
+    '/1-2': '/creative/',
+  },
 });
