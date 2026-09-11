@@ -46,6 +46,19 @@ function formatDate(date: Date) {
   </article>
 </Layout>
 
+<script define:vars={{ postId: post.id }}>
+  const READ_POSTS_KEY = 'eb_read_posts';
+  try {
+    const readPosts = JSON.parse(localStorage.getItem(READ_POSTS_KEY) ?? '[]');
+    if (!readPosts.includes(postId)) {
+      readPosts.push(postId);
+      localStorage.setItem(READ_POSTS_KEY, JSON.stringify(readPosts));
+    }
+  } catch {
+    // localStorage unavailable (private browsing, etc.)
+  }
+</script>
+
 <style>
   .post {
     max-width: 720px;

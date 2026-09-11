@@ -39,9 +39,9 @@ function formatDate(date: Date) {
       )}
       <div class="post-list">
         {posts.map((post) => (
-          <a href={`/blog/${post.id}/`} class="post-card" data-tags={(post.data.tags ?? []).join(' ')}>
+          <a href={`/blog/${post.id}/`} class="post-card" data-tags={(post.data.tags ?? []).join(' ')} data-post-id={post.id}>
             <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
-            <h2>{post.data.title}</h2>
+            <h2>{post.data.title} <span class="new-badge" hidden>NEW</span></h2>
             {post.data.description && <p>{post.data.description}</p>}
             {post.data.tags && post.data.tags.length > 0 && (
               <div class="tags">
@@ -72,6 +72,20 @@ function formatDate(date: Date) {
         const validGenres = Array.from(buttons).map((b) => b.dataset.genre);
         if (requestedGenre && validGenres.includes(requestedGenre)) {
           applyGenre(requestedGenre);
+        }
+
+        const READ_POSTS_KEY = 'eb_read_posts';
+        try {
+          const readPosts: string[] = JSON.parse(localStorage.getItem(READ_POSTS_KEY) ?? '[]');
+          cards.forEach((card) => {
+            const badge = card.querySelector<HTMLElement>('.new-badge');
+            const postId = card.dataset.postId;
+            if (badge && postId && !readPosts.includes(postId)) {
+              badge.hidden = false;
+            }
+          });
+        } catch {
+          // localStorage unavailable (private browsing, etc.) — skip NEW badges
         }
       </script>
     </div>
@@ -170,6 +184,20 @@ function formatDate(date: Date) {
   .post-card h2 {
     margin: 6px 0 8px;
     font-size: 18px;
+  }
+  .new-badge {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--color-teal);
+    color: white;
+  }
+  .new-badge[hidden] {
+    display: none;
   }
   .post-card p {
     margin: 0;
