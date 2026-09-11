@@ -40,8 +40,9 @@ function formatDate(date: Date) {
       <div class="post-list">
         {posts.map((post) => (
           <a href={`/blog/${post.id}/`} class="post-card" data-tags={(post.data.tags ?? []).join(' ')} data-post-id={post.id}>
+            <span class="new-badge" hidden>NEW</span>
             <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
-            <h2>{post.data.title} <span class="new-badge" hidden>NEW</span></h2>
+            <h2>{post.data.title}</h2>
             {post.data.description && <p>{post.data.description}</p>}
             {post.data.tags && post.data.tags.length > 0 && (
               <div class="tags">
@@ -160,6 +161,7 @@ function formatDate(date: Date) {
     gap: 20px;
   }
   .post-card {
+    position: relative;
     display: block;
     text-decoration: none;
     color: var(--color-ink);
@@ -186,12 +188,14 @@ function formatDate(date: Date) {
     font-size: 18px;
   }
   .new-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
     display: inline-block;
-    vertical-align: middle;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    padding: 2px 8px;
+    padding: 3px 10px;
     border-radius: 999px;
     background: var(--color-teal);
     color: white;
