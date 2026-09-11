@@ -24,7 +24,7 @@ tags:
 
 まず今までの写真で印象的だったのが、全体的に青緑っぽい色。
 
-![](/images/blog/DSC01153.JPG)
+![](/images/blog/DSC01153.webp)
 
 いわゆる「青被り」という現象です。
 
@@ -34,17 +34,15 @@ tags:
 
 そんなストロボを使用して撮影してきました!
 
-![](/images/blog/DSC01362.JPG)
+![](/images/blog/DSC01362.webp)
 
-![](/images/blog/DSC01517.JPG)
+![](/images/blog/DSC01386.webp)
 
-![](/images/blog/DSC01531.JPG)
+![](/images/blog/DSC01382.webp)
 
-![](/images/blog/DSC01526.JPG)
+![](/images/blog/DSC01526.webp)
 
-![](/images/blog/DSC01386.JPG)
-
-![](/images/blog/DSC01382.JPG)
+![](/images/blog/DSC01531.webp)
 
 どうですか!前回までの記事よりも魚に色がでてる!!
 
