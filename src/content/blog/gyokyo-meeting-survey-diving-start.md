@@ -51,6 +51,6 @@ tags:
 
 この姿勢と想いだけは、これから先も決して忘れず、まずは調査ダイビングから、一歩ずつ進んでいきたいと思います。
 
-![](/images/blog/DSC01065.JPG)
+![](/images/blog/DSC01068.JPG)
 
 emeraldblue 京華
