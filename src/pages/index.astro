@@ -6,6 +6,7 @@ import PhotoRow from '../components/PhotoRow.astro';
 import OceanDive from '../components/OceanDive.astro';
 import LogoPattern from '../components/LogoPattern.astro';
 import bubbles3 from '../assets/photos/bubbles-dsc01607.jpg';
+import diverPhoto from '../assets/photos/diver.jpg';
 import staffSanga from '../assets/photos/staff-sanga.jpg';
 import staffKyoka from '../assets/photos/staff-kyoka.jpg';
 import heroPhoto1 from '../assets/photos/hero1.jpg';
@@ -56,6 +57,11 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     </section>
   </OceanDive>
 
+  <div class="deep-zone">
+    <div class="diver-layer">
+      <Image src={diverPhoto} alt="" class="diver-photo" widths={[300, 500]} sizes="220px" loading="lazy" />
+    </div>
+    <div class="deep-foreground">
   <LogoPattern animated />
 
   <section class="services" id="services">
@@ -106,6 +112,8 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
       </a>
     </div>
   </section>
+    </div>
+  </div>
 
   <section class="blog-links">
     <div class="section-label">ブログ・SNS</div>
@@ -316,6 +324,42 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     overflow: hidden;
     border: 4px solid white;
     box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .deep-zone {
+    position: relative;
+    display: grid;
+    background: linear-gradient(to bottom, #EAF7F5 0%, #17BEBB 20%, #0E6E6B 55%, #0B4A44 100%);
+  }
+  .diver-layer {
+    grid-area: 1 / 1;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+    display: none;
+  }
+  .diver-layer :global(.diver-photo) {
+    position: absolute;
+    top: 25vh;
+    left: calc((100vw - 1100px) / 2 - 204px);
+    width: 180px;
+    height: auto;
+    border-radius: 16px;
+    opacity: 0.95;
+    filter: drop-shadow(0 16px 28px rgba(0,0,0,0.35));
+  }
+  .deep-foreground {
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 1520px) {
+    .diver-layer {
+      display: block;
+    }
   }
 
   .services {
