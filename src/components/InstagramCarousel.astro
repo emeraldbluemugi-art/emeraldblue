@@ -37,10 +37,14 @@ const { urls } = Astro.props;
   .ig-card {
     flex: 0 0 auto;
     width: 330px;
+    max-width: 330px;
+    overflow: hidden;
     scroll-snap-align: start;
     zoom: 0.65;
   }
+  .ig-card :global(.instagram-media),
   .ig-card :global(iframe) {
     max-width: 100% !important;
+    width: 100% !important;
   }
 </style>
