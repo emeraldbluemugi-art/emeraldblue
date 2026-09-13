@@ -133,8 +133,6 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
     </div>
   </section>
 
-  </div>
-
   <section class="staff">
     <div class="section-label">スタッフ</div>
     <div class="staff-grid">
@@ -213,6 +211,7 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
       <p class="contact-status" id="contact-status" role="status" hidden></p>
     </div>
   </section>
+  </div>
 
   <script>
     const form = document.getElementById('contact-form') as HTMLFormElement | null;
@@ -323,11 +322,19 @@ import webshopPhoto3 from '../assets/photos/webshop3.jpg';
 
   .deep-zone {
     position: relative;
-    background: linear-gradient(to bottom, #CFEEEA 0%, #17BEBB 22%, #0E6E6B 60%, #0B4A44 100%);
+    background: linear-gradient(to bottom, #CFEEEA 0%, #17BEBB 15%, #0E6E7A 45%, #0A3F4F 75%, #072C38 100%);
   }
   .deep-zone .section-label {
     color: white;
     text-shadow: 0 1px 3px rgba(4,52,44,0.85), 0 0 10px rgba(4,52,44,0.6);
+  }
+  .deep-zone .staff-member h3,
+  .deep-zone .contact-form label {
+    color: white;
+  }
+  .deep-zone .staff-member p,
+  .deep-zone .contact-lead {
+    color: rgba(255,255,255,0.9);
   }
   .services {
     max-width: 1100px;
