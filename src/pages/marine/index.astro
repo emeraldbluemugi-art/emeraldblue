@@ -1,4 +1,5 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Slideshow from '../../components/Slideshow.astro';
 import LogoPattern from '../../components/LogoPattern.astro';
@@ -8,6 +9,8 @@ import marineservice2 from '../../assets/photos/marineservice2.jpg';
 import marineservice3 from '../../assets/photos/marineservice3.jpg';
 import marineservice4 from '../../assets/photos/marineservice4.jpg';
 import marineservice5 from '../../assets/photos/marineservice5.jpg';
+
+const surveyDivingPost = await getEntry('blog', 'gyokyo-meeting-survey-diving-start');
 ---
 <Layout
   title="徳島・牟岐町のダイビング&スノーケリング | マリンサービス emeraldblue"
@@ -76,6 +79,16 @@ import marineservice5 from '../../assets/photos/marineservice5.jpg';
         この牟岐の海で少しずつ形にしていきたいと思っています。<br />
         それまで見守っていてほしいです。
       </p>
+      {surveyDivingPost && (
+        <a href={`/blog/${surveyDivingPost.id}/`} class="featured-post">
+          {surveyDivingPost.data.image && <img src={surveyDivingPost.data.image} alt="" loading="lazy" />}
+          <div class="featured-post-text">
+            <span class="featured-post-badge">最新記事</span>
+            <h4>{surveyDivingPost.data.title}</h4>
+            {surveyDivingPost.data.description && <p>{surveyDivingPost.data.description}</p>}
+          </div>
+        </a>
+      )}
       <BlogPromo
         genre="ダイビング"
         title="ダイビングができるまでの記録"
@@ -202,6 +215,57 @@ import marineservice5 from '../../assets/photos/marineservice5.jpg';
     font-size: 12px !important;
     color: #4A5A56 !important;
     text-align: center;
+  }
+
+  .featured-post {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: var(--color-ink);
+    background: white;
+    border-radius: 16px;
+    border-left: 3px solid var(--color-teal);
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .featured-post:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+  .featured-post img {
+    flex-shrink: 0;
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .featured-post-text {
+    min-width: 0;
+  }
+  .featured-post-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--color-teal);
+    color: white;
+    margin-bottom: 6px;
+  }
+  .featured-post-text h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .featured-post-text p {
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+    color: #4A5A56 !important;
   }
 
   .price-card {
