@@ -83,7 +83,6 @@ const surveyDivingPost = await getEntry('blog', 'gyokyo-meeting-survey-diving-st
         <a href={`/blog/${surveyDivingPost.id}/`} class="featured-post">
           {surveyDivingPost.data.image && <img src={surveyDivingPost.data.image} alt="" loading="lazy" />}
           <div class="featured-post-text">
-            <span class="featured-post-badge">最新記事</span>
             <h4>{surveyDivingPost.data.title}</h4>
             {surveyDivingPost.data.description && <p>{surveyDivingPost.data.description}</p>}
           </div>
@@ -244,17 +243,6 @@ const surveyDivingPost = await getEntry('blog', 'gyokyo-meeting-survey-diving-st
   }
   .featured-post-text {
     min-width: 0;
-  }
-  .featured-post-badge {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding: 3px 10px;
-    border-radius: 999px;
-    background: var(--color-teal);
-    color: white;
-    margin-bottom: 6px;
   }
   .featured-post-text h4 {
     margin: 0 0 4px;
