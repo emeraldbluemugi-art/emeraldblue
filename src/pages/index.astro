@@ -153,6 +153,16 @@ function formatDate(date: Date) {
           <p>写真や動画で日常の海をお届けします</p>
           <span class="pill">view more</span>
         </a>
+        <a href="https://www.youtube.com/@emeraldblue_mugi" class="sns-card sns-youtube" target="_blank" rel="noopener">
+          <span class="sns-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path fill="white" d="M9.8 8.5v7l6-3.5z" />
+            </svg>
+          </span>
+          <h4>YouTube</h4>
+          <p>牟岐の海の様子を動画でお届けします</p>
+          <span class="pill">view more</span>
+        </a>
       </div>
     </div>
   </section>
@@ -500,6 +510,7 @@ function formatDate(date: Date) {
   }
   .sns-row {
     display: flex;
+    gap: 20px;
   }
   .sns-row .sns-card {
     max-width: 320px;
@@ -531,6 +542,9 @@ function formatDate(date: Date) {
   }
   .sns-instagram .sns-badge {
     background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+  }
+  .sns-youtube .sns-badge {
+    background: #FF0000;
   }
   .sns-card h4 {
     margin: 0 0 6px;
@@ -727,5 +741,6 @@ function formatDate(date: Date) {
     .cards, .staff-grid { grid-template-columns: 1fr; }
     .calendar-embed iframe { height: 400px; }
     .message-content :global(.message-image) { height: 180px; }
+    .sns-row { flex-direction: column; }
   }
 </style>
