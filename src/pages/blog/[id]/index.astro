@@ -22,12 +22,18 @@ function formatDate(date: Date) {
   description={post.data.description ?? post.data.title}
   section=""
   type="article"
+  image={post.data.image}
   articleMeta={{
     publishedTime: post.data.pubDate.toISOString(),
     author: post.data.author,
   }}
 >
   <article class="post">
+    {post.data.image && (
+      <div class="post-eyecatch">
+        <img src={post.data.image} alt="" />
+      </div>
+    )}
     <div class="post-header">
       <a href="/blog/" class="back-link">&larr; ブログ一覧へ</a>
       <time datetime={post.data.pubDate.toISOString()}>
@@ -64,6 +70,17 @@ function formatDate(date: Date) {
     max-width: 720px;
     margin: 0 auto;
     padding: 56px 24px 64px;
+  }
+  .post-eyecatch {
+    margin: -56px -24px 32px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  .post-eyecatch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   .post-header {
     margin-bottom: 32px;

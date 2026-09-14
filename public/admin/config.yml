@@ -36,6 +36,7 @@ collections:
       - { label: "説明文(検索結果やSNSシェア時に表示されます)", name: description, widget: text, required: false }
       - { label: "公開日", name: pubDate, widget: datetime }
       - { label: "著者", name: author, widget: string, required: false, hint: "例: 山河 / 京華" }
+      - { label: "アイキャッチ画像", name: image, widget: image, required: false, hint: "記事一覧やSNSシェア時に表示されるサムネイル画像です" }
       - label: "ジャンル"
         name: tags
         widget: select

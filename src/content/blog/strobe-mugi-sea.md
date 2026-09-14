@@ -6,6 +6,7 @@ pubDate: 2026-08-25
 author: 山河
 tags:
   - 水中写真
+image: /images/blog/DSC01526.webp
 ---
 
 こんにちは。emeraldblueの山河です。
