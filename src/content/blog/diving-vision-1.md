@@ -7,6 +7,7 @@ author: 京華
 tags:
   - ダイビング
   - アップサイクル
+image: /images/blog/DSC09880.webp
 ---
 
 『マリン事業・漁業・海洋保全』

@@ -7,6 +7,7 @@ author: 山河
 tags:
   - ダイビング
   - アップサイクル
+image: /images/blog/DSC00065.webp
 ---
 
 こんにちは。

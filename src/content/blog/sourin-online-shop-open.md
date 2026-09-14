@@ -6,6 +6,7 @@ pubDate: 2025-12-02T10:49:00+09:00
 author: 山河
 tags:
   - アップサイクル
+image: /images/blog/DSC07053.webp
 ---
 
 こんにちは。emeraldblueの山河です。

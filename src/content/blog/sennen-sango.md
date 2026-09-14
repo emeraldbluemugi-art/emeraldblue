@@ -7,6 +7,7 @@ author: 京華
 tags:
   - ダイビング
   - 水中写真
+image: /images/blog/IMG_5247.JPG
 ---
 
 こんにちは、emeraldblueの京華です。

@@ -6,6 +6,7 @@ pubDate: 2026-06-12T16:13:00+09:00
 author: 京華
 tags:
   - ダイビング
+image: /images/blog/IMG_2024082911450022.webp
 ---
 
 『マリン事業・漁業・海洋保全』
