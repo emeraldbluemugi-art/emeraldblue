@@ -1,5 +1,6 @@
 {
   "name": "emeraldblue",
+  "account_id": "152c227221a1bb07922320b60f98ec0a",
   "compatibility_date": "2024-09-01",
   "assets": {
     "directory": "./dist"
