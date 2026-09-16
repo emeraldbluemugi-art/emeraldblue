@@ -43,3 +43,22 @@ export async function getBlogPost(id: string): Promise<BlogPost | null> {
     return null;
   }
 }
+
+export interface GalleryPhoto {
+  id: string;
+  image: {
+    url: string;
+    width?: number;
+    height?: number;
+  };
+  caption?: string;
+  publishedAt: string;
+}
+
+export async function getGalleryPhotos(): Promise<GalleryPhoto[]> {
+  const { contents } = await client.getList<GalleryPhoto>({
+    endpoint: 'gallery',
+    queries: { limit: 100, orders: '-publishedAt' },
+  });
+  return contents;
+}

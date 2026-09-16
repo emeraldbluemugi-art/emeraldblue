@@ -1,0 +1,111 @@
+---
+import { getGalleryPhotos } from '../../lib/microcms';
+import Layout from '../../layouts/Layout.astro';
+import LogoPattern from '../../components/LogoPattern.astro';
+
+const photos = await getGalleryPhotos();
+---
+<Layout
+  title="ギャラリー | emeraldblue"
+  description="徳島県牟岐町emeraldblueが撮影した水中写真のギャラリーです。牟岐の海で出会った生き物や景色をお届けします。"
+  section=""
+>
+  <section class="page-hero">
+    <h1>Gallery</h1>
+    <p class="page-hero-sub">牟岐の海で出会った景色</p>
+  </section>
+
+  <LogoPattern />
+
+  <section class="content">
+    <div class="section-label">水中写真</div>
+    <div class="content-body">
+      {photos.length === 0 && <p class="empty">まだ写真がありません。近日公開予定です。</p>}
+      <div class="photo-grid">
+        {photos.map((photo) => (
+          <a href={photo.image.url} target="_blank" rel="noopener" class="photo-item">
+            <img src={`${photo.image.url}?w=600`} alt={photo.caption ?? ''} loading="lazy" />
+            {photo.caption && <span class="photo-caption">{photo.caption}</span>}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: 64px 24px 40px;
+    text-align: center;
+    color: var(--color-ink);
+  }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    margin: 0;
+  }
+  .page-hero-sub {
+    font-size: 14px;
+    margin: 10px 0 0;
+    color: var(--color-teal);
+  }
+
+  .content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+    display: flex;
+    gap: 32px;
+  }
+  .section-label {
+    writing-mode: vertical-rl;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+  .content-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .empty {
+    font-size: 14px;
+    color: #4A5A56;
+  }
+
+  .photo-grid {
+    columns: 3 260px;
+    column-gap: 16px;
+  }
+  .photo-item {
+    display: block;
+    break-inside: avoid;
+    position: relative;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .photo-item img {
+    width: 100%;
+    display: block;
+  }
+  .photo-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 8px 10px;
+    font-size: 12px;
+    color: white;
+    background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+  }
+
+  @media (max-width: 640px) {
+    .content { flex-direction: column; }
+    .section-label { writing-mode: horizontal-tb; }
+    .photo-grid { columns: 2 140px; column-gap: 10px; }
+    .photo-item { margin-bottom: 10px; }
+  }
+</style>
