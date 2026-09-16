@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
+import { getBlogPosts } from '../lib/microcms';
 import Layout from '../layouts/Layout.astro';
 import Slideshow from '../components/Slideshow.astro';
 import PhotoRow from '../components/PhotoRow.astro';
@@ -28,12 +28,10 @@ import webshopPhoto1 from '../assets/photos/webshop1.jpg';
 import webshopPhoto2 from '../assets/photos/webshop2.jpg';
 import webshopPhoto3 from '../assets/photos/webshop3.jpg';
 
-const latestPosts = (await getCollection('blog'))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 4);
+const latestPosts = (await getBlogPosts()).slice(0, 4);
 
-function formatDate(date: Date) {
-  return date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 ---
 <Layout title="emeraldblue | 徳島県牟岐町のマリンサービス・アップサイクル・撮影/映像制作">
@@ -129,10 +127,10 @@ function formatDate(date: Date) {
           <div class="blog-latest">
             {latestPosts.map((post) => (
               <a href={`/blog/${post.id}/`} class="blog-latest-item">
-                {post.data.image && <img src={post.data.image} alt="" loading="lazy" />}
+                {post.image && <img src={post.image.url} alt="" loading="lazy" />}
                 <span class="blog-latest-text">
-                  <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
-                  <span class="blog-latest-title">{post.data.title}</span>
+                  <time datetime={post.pubDate}>{formatDate(post.pubDate)}</time>
+                  <span class="blog-latest-title">{post.title}</span>
                 </span>
               </a>
             ))}

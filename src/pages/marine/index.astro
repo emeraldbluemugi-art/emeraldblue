@@ -1,5 +1,5 @@
 ---
-import { getEntry } from 'astro:content';
+import { getBlogPost } from '../../lib/microcms';
 import Layout from '../../layouts/Layout.astro';
 import Slideshow from '../../components/Slideshow.astro';
 import LogoPattern from '../../components/LogoPattern.astro';
@@ -10,7 +10,7 @@ import marineservice3 from '../../assets/photos/marineservice3.jpg';
 import marineservice4 from '../../assets/photos/marineservice4.jpg';
 import marineservice5 from '../../assets/photos/marineservice5.jpg';
 
-const surveyDivingPost = await getEntry('blog', 'gyokyo-meeting-survey-diving-start');
+const surveyDivingPost = await getBlogPost('gyokyo-meeting-survey-diving-start');
 ---
 <Layout
   title="徳島・牟岐町のダイビング&スノーケリング | マリンサービス emeraldblue"
@@ -81,10 +81,10 @@ const surveyDivingPost = await getEntry('blog', 'gyokyo-meeting-survey-diving-st
       </p>
       {surveyDivingPost && (
         <a href={`/blog/${surveyDivingPost.id}/`} class="featured-post">
-          {surveyDivingPost.data.image && <img src={surveyDivingPost.data.image} alt="" loading="lazy" />}
+          {surveyDivingPost.image && <img src={surveyDivingPost.image.url} alt="" loading="lazy" />}
           <div class="featured-post-text">
-            <h4>{surveyDivingPost.data.title}</h4>
-            {surveyDivingPost.data.description && <p>{surveyDivingPost.data.description}</p>}
+            <h4>{surveyDivingPost.title}</h4>
+            {surveyDivingPost.description && <p>{surveyDivingPost.description}</p>}
           </div>
         </a>
       )}

@@ -1,16 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
+import { getBlogPosts } from '../../lib/microcms';
 import Layout from '../../layouts/Layout.astro';
 import LogoPattern from '../../components/LogoPattern.astro';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = await getBlogPosts();
 
 const genres = ['ダイビング', 'アップサイクル', '水中写真'];
 
-function formatDate(date: Date) {
-  return date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 ---
 <Layout
@@ -39,20 +37,20 @@ function formatDate(date: Date) {
       )}
       <div class="post-list">
         {posts.map((post) => (
-          <a href={`/blog/${post.id}/`} class="post-card" data-tags={(post.data.tags ?? []).join(' ')} data-post-id={post.id}>
+          <a href={`/blog/${post.id}/`} class="post-card" data-tags={(post.tags ?? []).join(' ')} data-post-id={post.id}>
             <span class="new-badge" hidden>NEW</span>
-            {post.data.image && (
+            {post.image && (
               <div class="post-thumb">
-                <img src={post.data.image} alt="" loading="lazy" />
+                <img src={post.image.url} alt="" loading="lazy" />
               </div>
             )}
             <div class="post-main">
-              <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
-              <h2>{post.data.title}</h2>
-              {post.data.description && <p>{post.data.description}</p>}
-              {post.data.tags && post.data.tags.length > 0 && (
+              <time datetime={post.pubDate}>{formatDate(post.pubDate)}</time>
+              <h2>{post.title}</h2>
+              {post.description && <p>{post.description}</p>}
+              {post.tags && post.tags.length > 0 && (
                 <div class="tags">
-                  {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+                  {post.tags.map((tag) => <span class="tag">{tag}</span>)}
                 </div>
               )}
             </div>

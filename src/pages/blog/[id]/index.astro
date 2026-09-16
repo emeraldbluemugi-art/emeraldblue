@@ -1,9 +1,9 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getBlogPosts } from '../../../lib/microcms';
 import Layout from '../../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getBlogPosts();
   return posts.map((post) => ({
     params: { id: post.id },
     props: { post },
@@ -11,44 +11,41 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
 
-function formatDate(date: Date) {
-  return date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 ---
 <Layout
-  title={`${post.data.title} | emeraldblue Blog`}
-  description={post.data.description ?? post.data.title}
+  title={`${post.title} | emeraldblue Blog`}
+  description={post.description ?? post.title}
   section=""
   type="article"
-  image={post.data.image}
+  image={post.image?.url}
   articleMeta={{
-    publishedTime: post.data.pubDate.toISOString(),
-    author: post.data.author,
+    publishedTime: post.pubDate,
+    author: post.author,
   }}
 >
   <article class="post">
-    {post.data.image && (
+    {post.image && (
       <div class="post-eyecatch">
-        <img src={post.data.image} alt="" />
+        <img src={post.image.url} alt="" />
       </div>
     )}
     <div class="post-header">
       <a href="/blog/" class="back-link">&larr; ブログ一覧へ</a>
-      <time datetime={post.data.pubDate.toISOString()}>
-        {formatDate(post.data.pubDate)}{post.data.author && ` ・ ${post.data.author}`}
+      <time datetime={post.pubDate}>
+        {formatDate(post.pubDate)}{post.author && ` ・ ${post.author}`}
       </time>
-      <h1>{post.data.title}</h1>
-      {post.data.tags && post.data.tags.length > 0 && (
+      <h1>{post.title}</h1>
+      {post.tags && post.tags.length > 0 && (
         <div class="tags">
-          {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+          {post.tags.map((tag) => <span class="tag">{tag}</span>)}
         </div>
       )}
     </div>
-    <div class="post-body">
-      <Content />
-    </div>
+    <div class="post-body" set:html={post.body} />
   </article>
 </Layout>
 
