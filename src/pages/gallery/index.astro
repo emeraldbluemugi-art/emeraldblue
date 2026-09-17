@@ -6,8 +6,8 @@ import LogoPattern from '../../components/LogoPattern.astro';
 const photos = await getGalleryPhotos();
 ---
 <Layout
-  title="ギャラリー | emeraldblue"
-  description="徳島県牟岐町emeraldblueが撮影した水中写真のギャラリーです。牟岐の海で出会った生き物や景色をお届けします。"
+  title="徳島・牟岐町の水中写真ギャラリー | emeraldblue"
+  description="徳島県牟岐町を拠点に活動する水中写真家・山河が撮影した水中写真ギャラリー。牟岐町ダイビング・徳島ダイビングで出会った海の生き物や景色をご紹介します。徳島の水中写真家をお探しの方はぜひご覧ください。"
   section=""
 >
   <section class="page-hero">
@@ -20,11 +20,14 @@ const photos = await getGalleryPhotos();
   <section class="content">
     <div class="section-label">水中写真</div>
     <div class="content-body">
+      <p class="intro">
+        徳島県牟岐町を拠点に活動する水中写真家・山河が、牟岐町でのダイビングやシュノーケリングを通して撮影した水中写真をご紹介します。徳島の海に暮らす生き物たちや、四季折々の景色をお楽しみください。
+      </p>
       {photos.length === 0 && <p class="empty">まだ写真がありません。近日公開予定です。</p>}
       <div class="photo-grid">
         {photos.map((photo) => (
           <a href={photo.image.url} target="_blank" rel="noopener" class="photo-item">
-            <img src={`${photo.image.url}?w=600`} alt={photo.caption ?? ''} loading="lazy" />
+            <img src={`${photo.image.url}?w=600`} alt={photo.caption || '徳島県牟岐町の水中写真'} loading="lazy" />
             {photo.caption && <span class="photo-caption">{photo.caption}</span>}
           </a>
         ))}
@@ -72,6 +75,13 @@ const photos = await getGalleryPhotos();
   .empty {
     font-size: 14px;
     color: #4A5A56;
+  }
+  .intro {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #33423E;
+    margin: 0 0 24px;
+    max-width: 720px;
   }
 
   .photo-grid {

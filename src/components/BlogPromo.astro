@@ -1,14 +1,16 @@
 ---
 interface Props {
-  genre: string;
+  genre?: string;
   title?: string;
   description: string;
+  href?: string;
 }
 
-const { genre, title = 'Blog', description } = Astro.props;
+const { genre, title = 'Blog', description, href } = Astro.props;
+const link = href ?? `/blog/?genre=${encodeURIComponent(genre ?? '')}`;
 ---
 
-<a href={`/blog/?genre=${encodeURIComponent(genre)}`} class="blog-promo">
+<a href={link} class="blog-promo">
   <h3>{title}</h3>
   <p>{description}</p>
   <span class="pill">view more</span>
