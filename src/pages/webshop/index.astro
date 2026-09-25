@@ -1,0 +1,293 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import LogoPattern from '../../components/LogoPattern.astro';
+import InstagramCarousel from '../../components/InstagramCarousel.astro';
+import portraitPhoto from '../../assets/photos/webshop-story-portrait.webp';
+import macroPhoto from '../../assets/photos/webshop-story-macro.webp';
+import scalesPhoto from '../../assets/photos/webshop-story-scales.webp';
+import colorsPhoto from '../../assets/photos/webshop-story-colors.webp';
+import driftwoodPhoto from '../../assets/photos/webshop-story-driftwood.webp';
+---
+<Layout
+  title="未利用魚の鱗から生まれるハンドメイドアクセサリー「蒼鱗」| emeraldblue"
+  description="徳島県牟岐町emeraldblueが手がける、未利用魚の鱗を使ったハンドメイドアクセサリー「蒼鱗」「藍鱗」。牟岐町の漁師から譲り受けたアオブダイやタカノハダイの鱗を、一枚一枚磨き上げています。徳島の水中写真家・水中の生き物をテーマにした海のアクセサリーをお探しの方はぜひ。"
+  section="upcycle"
+>
+  <section class="page-hero">
+    <Image
+      src={portraitPhoto}
+      alt="鱗のアクセサリーを身につけたemeraldblueスタッフと牟岐の海"
+      widths={[800, 1600, 2400]}
+      sizes="100vw"
+      class="page-hero-image"
+    />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-text">
+      <h1>海が生んだ、一粒の宝石。</h1>
+      <p class="page-hero-sub">未利用魚の鱗から生まれる、emeraldblueのハンドメイドアクセサリー</p>
+    </div>
+  </section>
+
+  <LogoPattern />
+
+  <section class="content">
+    <div class="section-label">ものがたり</div>
+    <div class="content-body">
+      <p class="lead">捨てられるはずだった魚が、海の記憶を宿すアクセサリーに変わる。</p>
+      <p>
+        徳島県牟岐町の漁師さんの網には、時々「売り物にならない」魚がかかります。
+        毒があるため食用に向かないアオブダイや、身に脂が少なく値がつきにくいタカノハダイ。
+        そうした未利用魚は、多くの場合そのまま海へ還されてしまいます。
+      </p>
+      <p>
+        地域おこし協力隊として牟岐町に移住した京華は、牟岐の海が持つエネルギーと魅力に惹かれ、
+        「捨てられてしまう命を、なんとか形に残せないか」と考えるようになりました。
+        たどり着いたのが、魚の鱗を使ったアクセサリーづくりです。
+      </p>
+      <Image
+        src={macroPhoto}
+        alt="夕日にきらめく鱗のアクセサリー"
+        widths={[600, 1200]}
+        sizes="(max-width: 640px) 100vw, 600px"
+        class="story-image"
+      />
+      <p>
+        一枚一枚の鱗には、その魚が生きてきた年月を刻む、木の年輪のような模様が浮かびます。
+        丁寧に洗浄し、磨き上げることで生まれるのは、二つとして同じ表情を持たない、海の記憶を宿したアクセサリー「蒼鱗(そうりん)」。
+        牟岐町の漁協とも連携し、売上の一部を地域の漁業に還元しながら、海と人とのつながりを未来へつないでいく取り組みです。
+      </p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="section-label">藍染コラボ</div>
+    <div class="content-body">
+      <p class="tagline">藍鱗(AIRIN) — 徳島の藍染と、海の鱗が出会う。</p>
+      <p>
+        徳島の伝統工芸である藍染とコラボレーションして生まれたのが「藍鱗(AIRIN)」。
+        鱗を藍色に染め上げることで、海の透明感と藍の深みが重なり合う、一枚だけの表情が生まれます。
+        金属アレルギーに配慮したパーツを使用しているので、ピアスが苦手な方にも安心してお使いいただけます。
+      </p>
+      <InstagramCarousel urls={["https://www.instagram.com/reel/DZ2WV1rRSSb/"]} />
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="section-label">ものづくり</div>
+    <div class="content-body">
+      <p>
+        未利用魚から鱗を取り出し、洗浄、乾燥、研磨、コーティングと、一つひとつ手作業で仕上げていきます。
+        牟岐町の海で育った魚の鱗だからこそ生まれる、自然な色味と輝き。
+        その制作の様子を動画でご紹介します。
+      </p>
+      <InstagramCarousel urls={["https://www.instagram.com/reel/DYzQh1rSblc/"]} />
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="section-label">ラインナップ</div>
+    <div class="content-body">
+      <div class="product-photos">
+        <Image src={scalesPhoto} alt="蒼鱗シリーズのピアス・イヤリング" widths={[400, 800]} sizes="(max-width: 640px) 50vw, 400px" class="product-photo" />
+        <Image src={colorsPhoto} alt="カラーバリエーション豊富なハンドメイドアクセサリー" widths={[400, 800]} sizes="(max-width: 640px) 50vw, 400px" class="product-photo" />
+      </div>
+      <ul class="product-list">
+        <li><strong>蒼鱗</strong> — 色・形をお選びいただけるオーダーメイドのピアス・イヤリング</li>
+        <li><strong>藍鱗(AIRIN)</strong> — 徳島の藍染とコラボした、金属アレルギー対応のピアス・イヤリング</li>
+        <li><strong>タカノハダイ／オジサン／アオブダイ</strong> — 魚種ごとに異なる鱗の模様を楽しめるシリーズ</li>
+        <li><strong>仲良しクラゲ君シリーズ</strong> — 海洋プラスチックごみをアップサイクルしたアクセサリー</li>
+      </ul>
+      <Image src={driftwoodPhoto} alt="流木と貝殻に添えられた海のアクセサリー" widths={[600, 1200]} sizes="(max-width: 640px) 100vw, 600px" class="story-image" />
+      <p class="note">
+        すべて徳島県牟岐町の素材を使用したハンドメイド作品です。売上の一部は地元漁協へ還元し、牟岐の海と漁業を未来へつなぐ取り組みを続けています。
+      </p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="section-label">メディア掲載</div>
+    <div class="content-body">
+      <p>
+        未利用魚の鱗を使ったものづくりの取り組みは、メディアでも取り上げていただきました。
+      </p>
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/9l2ss6ctJW8"
+          title="emeraldblue 取材動画"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p>
+        <a href="https://news.livedoor.com/article/detail/30611701/" target="_blank" rel="noopener">livedoorニュースの記事はこちら &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <p>emeraldblueのハンドメイドアクセサリーは、オンラインショップでお迎えいただけます。</p>
+    <a href="https://emeraldblue.base.shop/" class="cta-button" target="_blank" rel="noopener">オンラインショップを見る</a>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    height: 65vh;
+    min-height: 420px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    color: white;
+  }
+  .page-hero :global(.page-hero-image) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(4,52,44,0.75), rgba(4,52,44,0.1));
+  }
+  .page-hero-text {
+    position: relative;
+    z-index: 1;
+    padding: 0 24px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .page-hero-text h1 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    margin: 0 0 10px;
+  }
+  .page-hero-sub {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.95;
+  }
+
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 24px;
+    display: flex;
+    gap: 32px;
+  }
+  .section-label {
+    writing-mode: vertical-rl;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+  .content-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .content-body p {
+    font-size: 14px;
+    line-height: 2;
+    color: #33423E;
+    margin: 0 0 24px;
+  }
+  .content-body .lead {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .content-body .tagline {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .content-body .note {
+    font-size: 12px;
+    color: #4A5A56;
+  }
+  .story-image {
+    width: 100%;
+    border-radius: 16px;
+    margin: 0 0 24px;
+  }
+  .product-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .product-photo {
+    width: 100%;
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .product-list {
+    margin: 0 0 24px;
+    padding: 0;
+    list-style: none;
+  }
+  .product-list li {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #33423E;
+    padding: 12px 0;
+    border-bottom: 1px solid #E5E1D6;
+  }
+  .product-list li:first-child {
+    border-top: 1px solid #E5E1D6;
+  }
+  .video-embed {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    margin-bottom: 12px;
+  }
+  .video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .cta {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+    text-align: center;
+  }
+  .cta p {
+    font-size: 14px;
+    color: #4A5A56;
+    margin: 0 0 16px;
+  }
+  .cta-button {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 40px;
+    border-radius: 999px;
+    background: var(--color-teal);
+    color: white;
+    text-decoration: none;
+  }
+  .cta-button:hover {
+    background: #139A97;
+  }
+
+  @media (max-width: 640px) {
+    .content { flex-direction: column; }
+    .section-label { writing-mode: horizontal-tb; }
+    .product-photos { grid-template-columns: 1fr 1fr; }
+  }
+</style>
