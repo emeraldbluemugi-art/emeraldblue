@@ -91,14 +91,11 @@ import driftwoodPhoto from '../../assets/photos/webshop-story-driftwood.webp';
         <Image src={scalesPhoto} alt="蒼鱗シリーズのピアス・イヤリング" widths={[400, 800]} sizes="(max-width: 640px) 50vw, 400px" class="product-photo" />
         <Image src={colorsPhoto} alt="カラーバリエーション豊富なハンドメイドアクセサリー" widths={[400, 800]} sizes="(max-width: 640px) 50vw, 400px" class="product-photo" />
       </div>
-      <ul class="product-list">
-        <li><strong>蒼鱗</strong> — 色・形をお選びいただけるオーダーメイドのピアス・イヤリング</li>
-        <li><strong>藍鱗(AIRIN)</strong> — 徳島の藍染とコラボした、金属アレルギー対応のピアス・イヤリング</li>
-      </ul>
       <Image src={driftwoodPhoto} alt="流木と貝殻に添えられた海のアクセサリー" widths={[600, 1200]} sizes="(max-width: 640px) 100vw, 600px" class="story-image" />
       <p class="note">
         すべて徳島県牟岐町の素材を使用したハンドメイド作品です。売上の一部は地元漁協へ還元し、牟岐の海と漁業を未来へつなぐ取り組みを続けています。
       </p>
+      <a href="https://emeraldblue.base.shop/" class="lineup-cta" target="_blank" rel="noopener">他の商品も見る</a>
     </div>
   </section>
 
@@ -227,20 +224,18 @@ import driftwoodPhoto from '../../assets/photos/webshop-story-driftwood.webp';
     height: auto;
     border-radius: 12px;
   }
-  .product-list {
-    margin: 0 0 24px;
-    padding: 0;
-    list-style: none;
-  }
-  .product-list li {
+  .lineup-cta {
+    display: inline-block;
     font-size: 14px;
-    line-height: 1.9;
-    color: #33423E;
-    padding: 12px 0;
-    border-bottom: 1px solid #E5E1D6;
+    font-weight: 600;
+    padding: 12px 40px;
+    border-radius: 999px;
+    background: var(--color-teal);
+    color: white;
+    text-decoration: none;
   }
-  .product-list li:first-child {
-    border-top: 1px solid #E5E1D6;
+  .lineup-cta:hover {
+    background: #139A97;
   }
   .video-embed {
     position: relative;
