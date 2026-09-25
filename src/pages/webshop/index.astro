@@ -47,6 +47,15 @@ import closeupPhoto from '../../assets/photos/webshop-story-closeup.webp';
         「捨てられてしまう命を、なんとか形に残せないか」と考えるようになり、
         たどり着いたのが、魚の鱗を使ったアクセサリーづくりです。
       </p>
+      <div class="story-slideshow">
+        <Slideshow
+          images={[cardPhoto, scalesPhoto, colorsPhoto, closeupPhoto, macroPhoto]}
+          alt="蒼鱗シリーズのアクセサリー"
+          intervalMs={3200}
+          widths={[400, 800, 1200]}
+          sizes="(max-width: 640px) 100vw, 600px"
+        />
+      </div>
       <p>
         一枚一枚の鱗には、その魚が生きてきた年月を刻む、木の年輪のような模様が浮かびます。
         丁寧に洗浄し、磨き上げることで生まれるのは、二つとして同じ表情を持たない、海の記憶を宿したアクセサリー「蒼鱗(そうりん)」。
@@ -83,14 +92,9 @@ import closeupPhoto from '../../assets/photos/webshop-story-closeup.webp';
   <section class="content">
     <div class="section-label">ラインナップ</div>
     <div class="content-body">
-      <div class="lineup-slideshow">
-        <Slideshow
-          images={[cardPhoto, scalesPhoto, colorsPhoto, closeupPhoto, macroPhoto]}
-          alt="蒼鱗シリーズのアクセサリー"
-          intervalMs={3200}
-          widths={[400, 800, 1200]}
-          sizes="(max-width: 640px) 100vw, 600px"
-        />
+      <div class="product-photos">
+        <Image src={scalesPhoto} alt="蒼鱗シリーズのピアス・イヤリング" widths={[400, 800]} sizes="(max-width: 640px) 50vw, 400px" class="product-photo" />
+        <Image src={colorsPhoto} alt="カラーバリエーション豊富なハンドメイドアクセサリー" widths={[400, 800]} sizes="(max-width: 640px) 50vw, 400px" class="product-photo" />
       </div>
       <Image src={driftwoodPhoto} alt="流木と貝殻に添えられた海のアクセサリー" widths={[600, 1200]} sizes="(max-width: 640px) 100vw, 600px" class="story-image" />
       <p class="note">
@@ -213,7 +217,7 @@ import closeupPhoto from '../../assets/photos/webshop-story-closeup.webp';
     border-radius: 16px;
     margin: 0 0 24px;
   }
-  .lineup-slideshow {
+  .story-slideshow {
     position: relative;
     width: 100%;
     max-width: 480px;
@@ -222,6 +226,18 @@ import closeupPhoto from '../../assets/photos/webshop-story-closeup.webp';
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .product-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .product-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
   }
   .lineup-cta {
     display: inline-block;
