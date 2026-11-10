@@ -2,6 +2,7 @@
 import { getGalleryPhotos } from '../../lib/microcms';
 import Layout from '../../layouts/Layout.astro';
 import LogoPattern from '../../components/LogoPattern.astro';
+import BlogPromo from '../../components/BlogPromo.astro';
 
 const photos = await getGalleryPhotos();
 ---
@@ -31,6 +32,13 @@ const photos = await getGalleryPhotos();
             {photo.caption && <span class="photo-caption">{photo.caption}</span>}
           </a>
         ))}
+      </div>
+      <div class="software-promo">
+        <BlogPromo
+          href="/blog/aqua-develop-prerelease/"
+          title="水中写真に特化した現像ソフト、販売中"
+          description="水中で青く沈んでしまう写真を、ワンクリックで海の色によみがえらせるRAW現像ソフト「Aqua Develop_emeraldblue」。ブラウザで試せる体験版もあります。"
+        />
       </div>
     </div>
   </section>
@@ -110,6 +118,10 @@ const photos = await getGalleryPhotos();
     font-size: 12px;
     color: white;
     background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+  }
+
+  .software-promo {
+    margin-top: 40px;
   }
 
   @media (max-width: 640px) {
