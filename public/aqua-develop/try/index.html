@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aqua Develop_emeraldblue</title>
+  <link rel="icon" href="./favicon.png" />
+  <script type="module" crossorigin src="./assets/index-BplH2j13.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-kAmTZ3a6.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img class="brandlogo" src="./logo.png" alt="emeraldblue" />Aqua Develop<small>_emeraldblue</small> <span>水中写真RAW現像</span></div>
+    <label class="btn primary" for="file">RAWを開く</label>
+    <input id="file" type="file" accept=".arw,.cr2,.cr3,.nef,.orf,.rw2,.raf,.dng,.pef,.srw,image/*" hidden />
+    <div id="fileinfo" class="fileinfo">ファイルをドラッグ＆ドロップしても開けます</div>
+    <div class="spacer"></div>
+    <button id="undo" class="btn" title="元に戻す (Ctrl+Z)">↶</button>
+    <button id="redo" class="btn" title="やり直す (Ctrl+Y)">↷</button>
+    <button id="before" class="btn" title="押している間、補正前を表示（\キー）">補正前を見る</button>
+    <button id="export" class="btn primary" disabled>JPEGで書き出し</button>
+  </header>
+
+  <main class="layout">
+    <section id="stage" class="stage">
+      <div id="drop" class="drop">
+        <div>
+          <div class="droplogo"><img src="./logo.png" alt="emeraldblue" /></div>
+          <p class="big">RAWファイルをここにドロップ</p>
+          <p>ARW / CR2 / CR3 / NEF / ORF / RW2 / RAF / DNG など</p>
+        </div>
+      </div>
+      <div id="canvaswrap" class="canvaswrap" hidden>
+        <canvas id="view"></canvas>
+        <canvas id="overlay"></canvas>
+      </div>
+      <div id="status" class="status"></div>
+      <div id="toolhint" class="toolhint" hidden></div>
+      <div id="zoombar" class="zoombar" hidden>
+        <button id="zoomOut" class="btn small" title="縮小（Ctrl + -）">－</button>
+        <button id="zoomFit" class="btn small" title="全体を表示（Ctrl + 0）">全体</button>
+        <button id="zoom100" class="btn small" title="等倍（100%）で表示">100%</button>
+        <button id="zoomIn" class="btn small" title="拡大（Ctrl + +）">＋</button>
+        <span id="zoomPct" class="zoompct"></span>
+      </div>
+    </section>
+
+    <aside class="panel" id="panel">
+      <canvas id="hist" width="300" height="90"></canvas>
+      <div id="controls"></div>
+    </aside>
+  </main>
+
+</body>
+</html>
