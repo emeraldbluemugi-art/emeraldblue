@@ -16,7 +16,8 @@
     "astro": "^7.3.1",
     "gray-matter": "^4.0.3",
     "marked": "^18.0.13",
-    "microcms-js-sdk": "^3.5.0"
+    "microcms-js-sdk": "^3.5.0",
+    "three": "^0.187.0"
   },
   "allowScripts": {
     "esbuild": true
