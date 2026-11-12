@@ -53,7 +53,7 @@ const nav = lang === 'en' ? navEn : navJa;
 <html lang={lang}>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="generator" content={Astro.generator} />
   <meta name="google-site-verification" content="Qk-xM6UdPFCTKdgfOQLF4wUuMvbtV2UJkTiS_gpST0M" />
   <title>{title}</title>
@@ -177,6 +177,9 @@ const nav = lang === 'en' ? navEn : navJa;
   ::selection {
     background: var(--color-teal);
     color: white;
+  }
+  html {
+    overflow-x: clip;
   }
   body {
     margin: 0;

@@ -16,7 +16,47 @@ const { urls } = Astro.props;
   ))}
 </div>
 
-<script is:inline src="https://www.instagram.com/embed.js"></script>
+<script>
+  // Instagramの埋め込みスクリプトは重いので、ページ表示を止めないよう
+  // 画面の近くまでスクロールされてから非同期で読み込む
+  function loadInstagramEmbeds() {
+    const w = window as any;
+    if (w.instgrm?.Embeds) {
+      w.instgrm.Embeds.process();
+      return;
+    }
+    if (document.getElementById('ig-embed-script')) return;
+    const s = document.createElement('script');
+    s.id = 'ig-embed-script';
+    s.async = true;
+    s.src = 'https://www.instagram.com/embed.js';
+    document.body.appendChild(s);
+  }
+
+  const carousels = document.querySelectorAll('.ig-carousel');
+  if (carousels.length > 0) {
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+      loadInstagramEmbeds();
+    };
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            observer.disconnect();
+            start();
+          }
+        },
+        { rootMargin: '400px 0px' }
+      );
+      carousels.forEach((el) => observer.observe(el));
+    }
+    // 念のための保険：ページ表示が落ち着いた数秒後には必ず読み込む
+    window.addEventListener('load', () => setTimeout(start, 4000));
+  }
+</script>
 
 <style>
   .ig-carousel {
@@ -41,6 +81,10 @@ const { urls } = Astro.props;
     overflow: hidden;
     scroll-snap-align: start;
     zoom: 0.65;
+    /* 埋め込みが読み込まれる前から高さを確保して、レイアウトのガタつきを防ぐ */
+    min-height: 636px;
+    background: #fff;
+    border-radius: 12px;
   }
   .ig-card :global(.instagram-media),
   .ig-card :global(iframe) {
