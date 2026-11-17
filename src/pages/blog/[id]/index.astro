@@ -31,7 +31,7 @@ function formatDate(dateString: string) {
   <article class="post">
     {post.image && (
       <div class="post-eyecatch">
-        <img src={post.image.url} alt="" />
+        <img src={post.image.url} alt={post.title} />
       </div>
     )}
     <div class="post-header">
